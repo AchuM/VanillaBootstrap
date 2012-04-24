@@ -3,6 +3,11 @@ VanillaBootstrap
 
 #### A modern Vanilla theme based on Bootstrap from Twitter
 
+Demo
+----
+
+A demo and support forums can be found here: http://vanilla.ungdomsrod.dk/
+
 Requirements
 ------------
 
