@@ -1,4 +1,4 @@
-jQuery(document).ready(function() {
+jQuery(window).load(function() {
 	
 //Add 'active' class to 'Active' tabs
 
@@ -82,7 +82,7 @@ jQuery('.Bookmark').each(function() {
 
 //Remember excerpt toggle choice
 
-jQuery(document).ready(function() {
+jQuery(window).load(function() {
 	var panel = jQuery('.ExcerptList');
 	var button = jQuery('.ExcerptToggle');
 	var icon = jQuery('.ExcerptToggle i');

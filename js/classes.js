@@ -1,4 +1,4 @@
-jQuery(document).ready(function() {
+jQuery(window).load(function() {
 
 //Change classes to match those of Bootstrap
 
