@@ -2,7 +2,7 @@
 <div class="Box GuestBox">
 	<h4><?php echo T('Howdy, Stranger!'); ?></h4>
 	<p><?php echo T('It looks like you&#039;re new here. If you want to get involved, click one of these buttons!'); ?></p>
-	<?php $this->FireEvent('BeforeSignInButton'); ?>
+	<div class="LoginMethods"><?php $this->FireEvent('BeforeSignInButton'); ?></div>
 	
 	<?php
 	if (strcasecmp(C('Garden.Registration.Method'), 'Connect') != 0) {

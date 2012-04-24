@@ -93,7 +93,7 @@
 											<input type="submit" id="Form_SignIn" name="Form/Sign_In" value="Sign In" class="btn btn-primary">
 										</fieldset>
 										<p class="CreateAccount">
-											<a href="/entry/passwordrequest">Forgot password?</a>
+											<a href="/entry/signin">Forgot password?</a>
 											<a href="/entry/register?Target=%2F">Don't have an account?</a>
 										</p>
 									</form>

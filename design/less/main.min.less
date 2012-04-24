@@ -217,19 +217,18 @@ body.Entry textarea {
 		}
 	}
 
-.MultipleEntryMethods {
-	width: 660px;
+div.Entry {
+	width: 460px;
 	padding: 10px 15px;
+	margin-left: auto;
+	margin-right: auto;
+	}
+
+div.MultipleEntryMethods {
+	width: 660px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	.title {
-		font-size: 30px;
-		line-height: 36px;
-		margin-bottom: 17px;
-		padding-bottom: 8px;
-		border-bottom: 1px solid #DDD;
-		}
 	}
 
 .Methods {
@@ -246,6 +245,12 @@ body.Entry textarea {
 
 .form-actions {
 	clear: both;
+	}
+
+.LoginMethods {
+	float: right;
+	margin-right: 15px;
+	margin-top: 3px;
 	}
 
 /*--------------------------------------------------*/
@@ -642,7 +647,8 @@ a.Bookmark {
 			margin: 9px 0;
 			}
 		}
-	.ActivityTabs {
+	.ActivityTabs,
+	.ConversationsTabs {
 		color: #333;
 		padding: 10px 15px;
 		background-color: whiteSmoke;
