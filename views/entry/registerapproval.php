@@ -42,7 +42,7 @@
 				echo $this->Form->Label('Confirm Password', 'PasswordMatch', array('class' => 'control-label'));
 				echo '<div class="controls">';
 					echo $this->Form->Input('PasswordMatch', 'password');
-					echo '<p id="PasswordsDontMatch" class="Incorrect help-block" style="display: none; color: red;">'.T("Passwords don't match").'</p>';
+					//echo '<p id="PasswordsDontMatch" class="Incorrect help-block" style="display: none; color: red;">'.T("Passwords don't match").'</p>';
 				echo '</div>';
 			?>
 		</div>

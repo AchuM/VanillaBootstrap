@@ -34,7 +34,7 @@
          <?php
             echo $this->Form->Label('Confirm Password', 'PasswordMatch');
             echo $this->Form->Input('PasswordMatch', 'password');
-            echo '<span id="PasswordsDontMatch" class="Incorrect" style="display: none;">'.T("Passwords don't match").'</span>';
+            //echo '<span id="PasswordsDontMatch" class="Incorrect" style="display: none;">'.T("Passwords don't match").'</span>';
          ?>
       </li>
       <li class="Gender">
