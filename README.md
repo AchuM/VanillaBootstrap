@@ -6,7 +6,7 @@ VanillaBootstrap
 Requirements
 ------------
 
-This theme is currently only compatible with the 2.0 branch of Vanilla. A version for the 2.1 might be made if I find the time for it at some point.
+This theme is currently only compatible with the 2.0 branch of Vanilla. A version for the 2.1 branch might be made if I find the time for it at some point.
 
 Installation
 ------------
