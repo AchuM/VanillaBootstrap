@@ -9,7 +9,10 @@ Table of contents
 1. [Demo](#demo)
 2. [Requirements](#requirements)
 3. [Installation](#installation)
-4. [Compatibility](#compatibility)
+4. [Features](#features)
+	1. [Styling](#styling)
+	2. [Embedding](#embedding)
+5. [Compatibility](#compatibility)
 	1. [QnA plugin](#compatibility-with-qna)
 	2. [Kudos plugin](#compatibility-with-kudos)
 
@@ -38,7 +41,22 @@ Locate /js/library/jquery.js and replace the contents of the file with the lates
 Add the following line to conf/config.php:
 	
 	$Configuration['Garden']['InputFormatter'] = 'Markdown';
-	
+
+
+Features
+--------
+
+#### Styling
+
+First of all, the theme is pretty easy to customize using CSS without overriding stuff. Just add your custom styles to custom.css, as the only other purpose of this file is to import the main.min.css file.
+
+At the moment, there's a skin included in custom.css which adds the Apple-style linen texture background. Just follow the instructions in custom.css if you want to use this skin.
+
+
+#### Embedding
+
+This theme has a special embed.min.css file, which allows it to be easily embedded. Just follow the instructions in custom.css if you want to use the embed.min.css stylesheet.
+
 
 Compatibility
 -------------
