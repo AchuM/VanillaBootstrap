@@ -1,17 +1,27 @@
 VanillaBootstrap
-----------------
+================
 
 #### A modern Vanilla theme based on Bootstrap from Twitter
+
+Table of contents
+-----------------
+
+   1. [Demo](#demo)
+   2. [Requirements](#requirements)
+   3. [Installation](#installation)
+
 
 Demo
 ----
 
 A demo and support forums can be found here: http://vanilla.ungdomsrod.dk/
 
+
 Requirements
 ------------
 
 This theme is currently only compatible with the 2.0 branch of Vanilla. A version for the 2.1 branch might be made if I find the time for it at some point.
+
 
 Installation
 ------------
@@ -26,10 +36,12 @@ Add the following line to conf/config.php:
 	
 	$Configuration['Garden']['InputFormatter'] = 'Markdown';
 	
+
 Compatibility
 -------------
 
 A few adjustments to some plugins are required for them to work correctly with the theme
+
 
 #### Compatibility with QnA
 
@@ -44,6 +56,7 @@ Change line 19 in plugins/QnA/modules/class.newquestionmodule.php from
 to
 
 	echo '';
+
 	
 #### Compatibility with Kudos
 
