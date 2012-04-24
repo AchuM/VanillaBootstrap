@@ -19,7 +19,7 @@ Locate /js/library/jquery.js and replace the contents of the file with the lates
 
 Add the following line to conf/config.php:
 	
-	`$Configuration['Garden']['InputFormatter'] = 'Markdown';`
+	<code>$Configuration['Garden']['InputFormatter'] = 'Markdown';</code>
 	
 Compatibility
 -------------
@@ -30,21 +30,22 @@ A few adjustments to some plugins are required for them to work correctly with t
 
 Add the following line to conf/config.php
 	
-	`$Configuration['Plugins']['QnA']['UseBigButtons'] = TRUE;`
+	<code>$Configuration['Plugins']['QnA']['UseBigButtons'] = TRUE;</code>
 
 Change line 19 in plugins/QnA/modules/class.newquestionmodule.php from
 	
-	`echo Anchor(T('Ask a Question'), '/post/discussion?Type=Question', 'BigButton NewDiscussion');`
+	<code>echo Anchor(T('Ask a Question'), '/post/discussion?Type=Question', 'BigButton NewDiscussion');</code>
 	
 to
 
-	`echo '';`
+	<code>echo '';</code>
 	
 #### Compatibility with Kudos
 
 Replace this section of code in plugins/Kudos/default.php:
 
-  `/**
+<code>
+  /**
 	* This formats the liking info.
 	*
 	* @param int $DiscussionID
@@ -66,11 +67,13 @@ Replace this section of code in plugins/Kudos/default.php:
 		$Toolbar .= '&nbsp;(+'.count($Kudos['l']).' / -'.count($Kudos['h']).' )';
 
 		return $Toolbar;
-	}`
+	}
+</code>
 
 with this:
 
-  `/**
+<code>
+  /**
 	* This formats the liking info.
 	*
 	* @param int $DiscussionID
@@ -94,4 +97,5 @@ with this:
 		}
 
 		return $Toolbar;
-	}`
+	}
+</code>
