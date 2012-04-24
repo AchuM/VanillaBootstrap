@@ -31,10 +31,8 @@
 				<a class="brand" href="{link path="/"}">{logo}</a>
 				<div class="nav-collapse">
 					<ul class="nav">
-						<!-- <li class="HomeLink"><a href="{link path="/home"}"><i class="icon-home"></i> Home</a></li> -->
 						<li class="DiscussionsLink"><a href="{link path="/discussions"}"><i class="icon-comments"></i> Discussions</a></li>
 						<li class="ActivityLink"><a href="{link path="/activity"}"><i class="icon-time"></i> Activity</a></li>
-						<!-- <li class="BlogLink"><a href="{link path="/blog"}"><i class="icon-edit"></i> Blog</a></li> -->
 						{custom_menu}
 					</ul>
 					
@@ -128,11 +126,6 @@
 				{asset name="Content"}
 			</div>
 		</div>
-		
-		<!-- <footer class="footer">
-			<p class="pull-right"><a href="#">Back to top</a></p>
-			<p>Powered by <a href="http://vanillaforums.org">Vanilla</a></p>
-		</footer> -->
 		
 		{asset name="Foot"}
 		
