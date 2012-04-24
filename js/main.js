@@ -1,5 +1,9 @@
 jQuery(window).load(function() {
 	
+//Show content on load
+
+jQuery('.container-fluid').show();
+
 //Add 'active' class to 'Active' tabs
 
 jQuery('li').each(function() {
