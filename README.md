@@ -6,9 +6,12 @@ VanillaBootstrap
 Table of contents
 -----------------
 
-   1. [Demo](#demo)
-   2. [Requirements](#requirements)
-   3. [Installation](#installation)
+1. [Demo](#demo)
+2. [Requirements](#requirements)
+3. [Installation](#installation)
+4. [Compatibility](#compatibility)
+	1. [QnA plugin](#compatibility-with-qna)
+	2. [Kudos plugin](#compatibility-with-kudos)
 
 
 Demo
