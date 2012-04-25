@@ -8,11 +8,11 @@
 	<!-- Javascript
  	================================================== -->
 	
-	<script type="text/javascript" src="/themes/VanillaBootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/themes/VanillaBootstrap/js/classes.js"></script>
-	<script type="text/javascript" src="/themes/VanillaBootstrap/js/cookie.plugin.js"></script>
-	<script type="text/javascript" src="/themes/VanillaBootstrap/js/main.js"></script>
-	<script type="text/javascript" src="/themes/VanillaBootstrap/design/prettify/prettify.js"></script> 
+	<script type="text/javascript" src="themes/VanillaBootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="themes/VanillaBootstrap/js/classes.js"></script>
+	<script type="text/javascript" src="themes/VanillaBootstrap/js/cookie.plugin.js"></script>
+	<script type="text/javascript" src="themes/VanillaBootstrap/js/main.js"></script>
+	<script type="text/javascript" src="themes/VanillaBootstrap/design/prettify/prettify.js"></script> 
 	
 </head>
 <body id="{$BodyID}" class="{$BodyClass}" onload="prettyPrint()">
