@@ -32,6 +32,10 @@ This theme is currently only compatible with the 2.0 branch of Vanilla. A versio
 Installation
 ------------
 
+#### Match file paths in default.master.tpl
+
+Make sure that the JS calls in default.master.tpl matches your folder structure. The default structure is http://example.com/themes/VanillaBootstrap, but if you use another structure, please correct the paths or pages won't load.
+
 #### Update of the core jQuery-library is REQUIRED
 
 Locate /js/library/jquery.js and replace the contents of the file with the latest version of the jQuery library found here: http://jquery.com/
