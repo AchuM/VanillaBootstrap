@@ -29,10 +29,10 @@ foreach ($this->_ProfileTabs as $TabCode => $TabInfo) {
 			echo '<li'.($CssClass == '' ? '' : ' class="'.$CssClass.'"').'>'.Anchor(GetValue('TabHtml', $TabInfo, $TabCode), GetValue('TabUrl', $TabInfo), array('class' => 'TabLink'))."</li>\r\n";
 		}
 	}
-	$this->GetUserInfo($UserReference, $Username, $UserID);
+	/*$this->GetUserInfo($UserReference, $Username, $UserID);
 
 	if ($this->User->UserID == Gdn::Session()->UserID)
-		echo '<li class="EditProfileLink"><a class="TabLink btn-info" href="/profile/edit"><i class="icon-edit"></i> Edit profile</a></li>';
+		echo '<li class="EditProfileLink"><a class="TabLink btn-info" href="/profile/edit"><i class="icon-edit"></i> Edit profile</a></li>';*/
 	?>
 	<li class="ExcerptLink"><a class="TabLink ExcerptToggle active btn-primary" href="#"><i class="icon-eye-open"></i> Excerpts</a></li>
 	</ul>

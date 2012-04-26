@@ -62,11 +62,11 @@ jQuery('body#dashboard_plugin_page .span8').toggleClass('span8 span12');
 
 //Remove panel on certain profile pages
 
-jQuery('body#dashboard_profile_index .PanelInfo').parent().remove();
-jQuery('body#dashboard_profile_notifications .PanelInfo').parent().remove();
-jQuery('body#dashboard_profile_activity .PanelInfo').parent().remove();
-jQuery('body#dashboard_profile_discussions .PanelInfo').parent().remove();
-jQuery('body#dashboard_profile_comments .PanelInfo').parent().remove();
+//jQuery('body#dashboard_profile_index .PanelInfo').parent().remove();
+//jQuery('body#dashboard_profile_notifications .PanelInfo').parent().remove();
+//jQuery('body#dashboard_profile_activity .PanelInfo').parent().remove();
+//jQuery('body#dashboard_profile_discussions .PanelInfo').parent().remove();
+//jQuery('body#dashboard_profile_comments .PanelInfo').parent().remove();
 
 //Bookmarks
 
