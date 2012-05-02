@@ -1,8 +1,14 @@
 jQuery(window).load(function() {
-	
-//Show content on load
 
-jQuery('.container-fluid').show();
+//Bugs
+
+jQuery('body').removeClass('thumbnail');
+
+//Avoid propagation on login dropdown
+
+jQuery('.login-dropdown').find('form').click(function (e) {
+	e.stopPropagation();
+});
 
 //Add 'active' class to 'Active' tabs
 
@@ -14,13 +20,6 @@ jQuery('li').each(function() {
 	};
 });
 
-//Menu highlight
-//jQuery('ul.nav a').each(function() {
-//	if (window.location.href.indexOf(this.href) >= 0) {
-//		jQuery(this).parent().addClass('active');
-//	};
-//});
-
 //Change folder status of categories
 
 jQuery('.PanelCategories li').each(function() {
@@ -30,43 +29,6 @@ jQuery('.PanelCategories li').each(function() {
 		jQuery(folder).toggleClass('icon-folder-open icon-folder-close');
 	};
 });
-	
-//Avoid propagation on login dropdown
-
-jQuery('.login-dropdown').find('form').click(function (e) {
-	e.stopPropagation();
-});
-
-//Remove panel on system and custom pages
-
-jQuery('body#dashboard_entry_index .span4').remove();
-jQuery('body#dashboard_entry_index .span8').toggleClass('span8 span12');
-
-jQuery('body#dashboard_entry_register .span4').remove();
-jQuery('body#dashboard_entry_register .span8').toggleClass('span8 span12');
-
-jQuery('body#dashboard_entry_password .span4').remove();
-jQuery('body#dashboard_entry_password .span8').toggleClass('span8 span12');
-
-jQuery('body#dashboard_entry_passwordrequest .span4').remove();
-jQuery('body#dashboard_entry_passwordrequest .span8').toggleClass('span8 span12');
-
-jQuery('body#dashboard_entry_signin .span4').remove();
-jQuery('body#dashboard_entry_signin .span8').toggleClass('span8 span12');
-
-jQuery('body#dashboard_entry_signout .span4').remove();
-jQuery('body#dashboard_entry_signout .span8').toggleClass('span8 span12');
-
-jQuery('body#dashboard_plugin_page .span4').remove();
-jQuery('body#dashboard_plugin_page .span8').toggleClass('span8 span12');
-
-//Remove panel on certain profile pages
-
-//jQuery('body#dashboard_profile_index .PanelInfo').parent().remove();
-//jQuery('body#dashboard_profile_notifications .PanelInfo').parent().remove();
-//jQuery('body#dashboard_profile_activity .PanelInfo').parent().remove();
-//jQuery('body#dashboard_profile_discussions .PanelInfo').parent().remove();
-//jQuery('body#dashboard_profile_comments .PanelInfo').parent().remove();
 
 //Bookmarks
 
