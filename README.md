@@ -34,7 +34,7 @@ Installation
 
 #### Match file paths in default.master.tpl
 
-Make sure that the JS calls in default.master.tpl matches your folder structure. The default structure is http://example.com/themes/VanillaBootstrap, but if you use another structure, please correct the paths or pages won't load.
+Make sure that the JS, CSS and LESS calls in default.master.tpl matches your folder structure. The default structure is http://example.com/themes/VanillaBootstrap, but if you use another structure, please correct the paths or pages won't load.
 
 #### Update of the core jQuery-library is REQUIRED
 
@@ -52,14 +52,14 @@ Features
 
 #### Styling
 
-First of all, the theme is pretty easy to customize using CSS without overriding stuff. Just add your custom styles to custom.css, as the only other purpose of this file is to import the main.min.css file.
+First of all, the theme is pretty easy to customize using CSS without overriding stuff. Just add your custom styles to custom.css, as this is the only purpose of the file.
 
-At the moment, there's a skin included in custom.css which adds the Apple-style linen texture background. Just follow the instructions in custom.css if you want to use this skin.
+At the moment, there's a skin included in main.less which adds the Apple-style linen texture background. Just follow the instructions in main.less if you want to use this skin.
 
 
 #### Embedding
 
-This theme has a special embed.min.css file, which allows it to be easily embedded. Just follow the instructions in custom.css if you want to use the embed.min.css stylesheet.
+This theme has a special embed.less file, which allows it to be easily embedded. Just follow the instructions in main.less if you want to use the embed.less stylesheet.
 
 
 Compatibility
