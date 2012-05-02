@@ -89,6 +89,9 @@ function WriteDiscussion($Discussion, &$Sender, &$Session, $Alt2) {
 		 	$end = substr($Body, 0);
 		 	if ($end)
 			 	$Body = substr($Body, 0, 400);
+				$pos = strrpos($Body, " ");
+				$Body = substr($Body, 0, $pos);
+				$Body = strip_tags($Body);
 		 	$Discussion->FormatBody = Gdn_Format::To($Body, $Discussion->Format);
 		 	?>
 			<ul class="MessageList ExcerptList">
