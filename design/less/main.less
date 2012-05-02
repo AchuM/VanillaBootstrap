@@ -30,6 +30,9 @@ the following line to enable the special embed.less */
 body {
 	text-align: left;
 	padding: 60px 0 0;
+	&.Entry {
+		text-align: left;
+		}
 	}
 
 a {
@@ -41,6 +44,19 @@ a {
 ul, ol {
 	list-style: none;
 	margin: 0;
+	}
+
+body.Entry .Panel,
+body.Conversations.add .Panel,
+body.Vanilla.Post .Panel {
+	display: none;
+	}
+
+body.Entry .Content,
+body.Conversations.add .Content,
+body.Vanilla.Post .Content {
+	width: 100%;
+	margin-left: 0;
 	}
 
 // Buttons
@@ -76,6 +92,31 @@ a.Button,
 .TabLink {
 	.btn();
 	}
+
+a.BigButton {
+	.btn();
+	.btn-primary();
+	display: block;
+	font-weight: normal;
+	margin: 0 0 10px;
+	font-size: 15px;
+	padding: 8px 0;
+	} 
+
+.Cancel {
+	.btn();
+	.btn-danger();
+	}
+
+.DraftButton {
+	.btn-info();
+	}
+
+.PreviewButton {
+	.btn-primary();
+	}
+
+
 	
 // Widgets, panels and containers
 // -------------------------------------------------//

@@ -2,25 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-ca">
 <head>
 	{asset name='Head'}
-	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<!-- LESS CSS and Prettify
- 	================================================== -->
- 	
- 	<link rel="stylesheet/less" type="text/css" href="/themes/VanillaBootstrap/design/less/main.less">
- 	<link rel="stylesheet" type="text/css" href="/themes/VanillaBootstrap/design/prettify/prettify.css">
-	
-	<!-- Javascript
- 	================================================== -->
-	
-	<script type="text/javascript" src="/themes/VanillaBootstrap/js/less.min.js"></script>
-	<script type="text/javascript" src="/themes/VanillaBootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/themes/VanillaBootstrap/js/classes.js"></script>
-	<script type="text/javascript" src="/themes/VanillaBootstrap/js/cookie.plugin.js"></script>
-	<script type="text/javascript" src="/themes/VanillaBootstrap/js/main.js"></script>
-	<script type="text/javascript" src="/themes/VanillaBootstrap/design/prettify/prettify.js"></script> 
-	
 </head>
 <body id="{$BodyID}" class="{$BodyClass}" onload="prettyPrint()">
 
@@ -118,7 +100,7 @@
 	<div class="container-fluid">
 	
 		<div class="row-fluid">
-			<div class="span4">
+			<div class="Panel span4">
 				<div class="Box BoxSearch">{searchbox}</div>
 				{asset name="Panel"}
 				<div class="credits well">
@@ -129,7 +111,7 @@
 					<!-- Feel free to delete my name from the list, but please keep both the Vanilla and Bootstrap notices -->
 				</div>
 			</div>
-			<div class="span8">
+			<div class="Content span8">
 				{asset name="Content"}
 			</div>
 		</div>
