@@ -70,7 +70,7 @@
 							</a>
 							<ul class="dropdown-menu login-dropdown">
 								<div class="MainForm">
-									<form id="Form_User_SignIn" class="form-horizontal" method="post" action="/entry/signin">
+									<form id="Form_User_SignIn" class="form-horizontal" method="post" action="{link path="/entry/signin"}">
 										<fieldset>
 											<input type="hidden" id="Form_hpt" name="Form/hpt" value="" style="display: none;">
   											<label class="UsernameLabel">
@@ -91,8 +91,8 @@
 											<input type="submit" id="Form_SignIn" name="Form/Sign_In" value="Sign In" class="btn btn-primary">
 										</fieldset>
 										<p class="CreateAccount">
-											<a href="/entry/signin">Forgot password?</a>
-											<a href="/entry/register?Target=%2F">Don't have an account?</a>
+											<a href="{link path="/entry/signin"}">Forgot password?</a>
+											<a href="{link path="/entry/register?Target=%2F"}">Don't have an account?</a>
 										</p>
 									</form>
 								</div>
