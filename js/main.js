@@ -1,4 +1,4 @@
-jQuery(window).load(function() {
+jQuery(document).ready(function() {
 
 	//Bugs
 	jQuery('body').removeClass('thumbnail');
@@ -7,5 +7,8 @@ jQuery(window).load(function() {
 	jQuery('.login-dropdown').find('form').click(function (e) {
 		e.stopPropagation();
 	});
+	
+	//Autosize textareas
+	jQuery('textarea').autosize();
 	
 });

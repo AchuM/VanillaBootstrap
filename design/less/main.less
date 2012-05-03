@@ -16,6 +16,13 @@ the following line to enable the special embed.less */
 
 //@import "linen.less";
 
+/*--------------------------------------------------*/
+/* The following files are stylesheets for plugins */
+/*--------------------------------------------------*/
+
+@import "plugins/QnA.less";
+//@import "plugins/WYSIWIG.less";
+
 // Additional variables
 // -------------------------------------------------//
 
@@ -29,7 +36,7 @@ the following line to enable the special embed.less */
 
 body {
 	text-align: left;
-	padding: 60px 0 0;
+	padding: 60px 0;
 	&.Entry {
 		text-align: left;
 		}
@@ -87,10 +94,31 @@ body.Vanilla.Post .Content {
 		}
 	}
 
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly],
+select[readonly],
+textarea[readonly] {
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	}
+
 a.Button,
 .Button,
-.TabLink {
+.TabLink,
+.Tabs .TabLink {
 	.btn();
+	}
+
+.MenuTitle {
+	.btn();
+	.btn-mini();
+	}
+
+.Buttons {
+	.Back {
+		display: none;
+		}
 	}
 
 a.BigButton {
@@ -110,13 +138,17 @@ a.BigButton {
 
 .DraftButton {
 	.btn-info();
+	&.TabLink {
+		.btn-primary();
+		}
 	}
 
 .PreviewButton {
 	.btn-primary();
+	&.TabLink {
+		.btn-info();
+		}
 	}
-
-
 	
 // Widgets, panels and containers
 // -------------------------------------------------//
@@ -124,18 +156,29 @@ a.BigButton {
 .Box {
 	background: @whiterSmoke;
 	padding: 10px 15px;
-	.border-radius(3px);
+	border: 1px solid @tableBorder;
+	.border-radius(4px);
+	.box-shadow(none);
 	
-	.PanelInfo {
-		&.PanelCategories {
-			margin: 0 -15px -10px;
+	> h4 {
+		color: @grayDark;
+		padding: 10px 15px;
+		margin: -10px -15px 10px;
+		background-color: @whiteSmoke;
+		border-bottom: 1px solid @tableBorder;
+		.border-radius(4px 4px 0 0);
+		a {
+			color: @grayDark;
 			}
-		li {
-			background: @whiterSmoke;
-			padding: 6px 15px;
-			&.Active {
-				background: @whiteSmoke;
-				.box-shadow(inset 0 3px 8px rgba(0, 0, 0, 0.05));
+		}
+	
+	&.BoxCategories {
+		> h4 {
+			a:after {
+				float: right;
+				font-family: FontAwesome;
+				font-weight: normal;
+				content: "\f00b";
 				}
 			}
 		}
@@ -145,10 +188,66 @@ a.BigButton {
 		form {
 			margin: 0;
 			input {
-				width: 98%;
+				margin: 0;
 				}
 			#Form_Go {
 				display: none;
+				}
+			}
+		}
+	
+	&.About {
+		dl {
+			.dl-horizontal();
+			margin-bottom: 0;
+			}
+		}
+	
+	.PanelInfo {
+		border-top: none;
+		&.PanelCategories {
+			margin: -10px -15px;
+			li {
+				&.Heading {
+					background: @whiteSmoke;
+					}
+				a {
+					color: @grayDark;
+					font-weight: bold;
+					&:before {
+						color: @grayLight;
+						font-family: FontAwesome;
+						font-weight: normal;
+						content: "\f07b";
+						margin-right: 5px;
+						}
+					&:hover {
+						color: @linkColor;
+						}
+					}
+				&.Active a {
+					color: @linkColor;
+					&:before {
+						color: @linkColor;
+						content: "\f07c";
+						}
+					}
+				&.Depth3 {
+					padding: 8px 15px 8px 32px;
+					}
+				}
+			}
+		li {
+			background: @whiterSmoke;
+			border-bottom: 1px solid @tableBorder;
+			padding: 8px 15px;
+			&:last-child {
+				border-bottom: none;
+				.border-radius(0 0 4px 4px);
+				}
+			&.Active {
+				background: @whiteSmoke;
+				.box-shadow(inset 0 3px 8px rgba(0, 0, 0, 0.05));
 				}
 			}
 		}
@@ -202,6 +301,96 @@ a.BigButton {
 		}
 	}
 
+// Tabs
+// -------------------------------------------------//
+
+.DiscussionsTabs,
+.DiscussionTabs,
+.ActivityTabs,
+.ProfileTabs,
+.CategoryHeadings,
+.CategoryTabs {
+	background: @whiteSmoke;
+	border: 1px solid @tableBorder;
+	padding: 10px 15px;
+	.border-radius(4px 4px 0 0);
+	
+	.Breadcrumbs {
+		.breadcrumb();
+		.border-radius(0);
+		border-width: 1px 0 0;
+		margin: 10px -15px -10px;
+		}
+		
+	}
+
+.HeadingTabs {
+	.SubTab {
+		font-size: 20px;
+		line-height: 28px;
+		}
+	}
+
+// Datalist
+// -------------------------------------------------//
+
+.DataList {
+	
+	&.MessageList {
+		border: solid @tableBorder;
+		border-width: 0 1px;
+		padding: 0;
+		margin-bottom: 0;
+		.Item {
+			background: white;
+			padding: 10px 15px 4px;
+			border-bottom: 1px solid @whiteSmoke;
+			&:last-child {
+				border-bottom: none;
+				}
+			}
+		}
+	
+	}
+
+// Comments
+// -------------------------------------------------//
+
+form#Form_Comment {
+	margin-bottom: 0;
+	}
+
+.CommentTabs {
+	position: absolute;
+	bottom: 10px;
+	}
+
+.CommentForm {
+	background: @whiteSmoke;
+	border: 1px solid @tableBorder;
+	.border-radius(0 0 4px 4px);
+
+	label {
+		color: darken(@grayLight, 10%);
+		}
+	.Buttons {
+		span {
+			position: relative;
+			top: 1px;
+			color: darken(@grayLight, 10%);
+			margin: 0 20px;
+			}
+		}
+	textarea.TextBox {
+		height: 40px;
+		min-height: 40px;
+		}
+	}
+	
+.MessageForm {
+	padding: 10px 15px;
+	}
+
 // Errors
 // -------------------------------------------------//
 
@@ -213,4 +402,21 @@ a.BigButton {
 		display: inline;
 		background: none !important;
 		}
+	}
+
+// Labels
+// -------------------------------------------------//
+
+.Count,
+.TabLink span {
+	.label();
+	background-color: @infoText;
+	}
+
+// Inputs
+// -------------------------------------------------//
+
+.TextBoxWrapper {
+	width: auto;
+	padding-right: 10px;
 	}

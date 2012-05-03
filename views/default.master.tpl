@@ -3,11 +3,28 @@
 <head>
 	{asset name='Head'}
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- LESS CSS and Prettify
+	================================================== -->
+ 	
+ 	<link rel="stylesheet/less" type="text/css" href="/themes/VanillaBootstrap/design/less/main.less">
+ 	<link rel="stylesheet" type="text/css" href="/themes/VanillaBootstrap/design/prettify/prettify.css">
+	
+	<!-- Javascript
+	================================================== -->
+	
+	<script type="text/javascript" src="/themes/VanillaBootstrap/js/less.min.js"></script>
+	<script type="text/javascript" src="/themes/VanillaBootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/themes/VanillaBootstrap/js/autosize.plugin.js"></script>
+	<script type="text/javascript" src="/themes/VanillaBootstrap/js/cookie.plugin.js"></script>
+	<script type="text/javascript" src="/themes/VanillaBootstrap/js/main.js"></script>
+	<script type="text/javascript" src="/themes/VanillaBootstrap/design/prettify/prettify.js"></script>
+	
 </head>
 <body id="{$BodyID}" class="{$BodyClass}" onload="prettyPrint()">
-
+	
 	<!-- Navbar
- 	================================================== -->
+	================================================== -->
 
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
@@ -95,7 +112,7 @@
 	</div>		
 
 	<!-- Container
- 	================================================== -->
+	================================================== -->
 
 	<div class="container-fluid">
 	
