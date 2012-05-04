@@ -67,11 +67,8 @@ blockquote, q {
 
 /* ============================================== General Styles & Typography */
 body {
-	color: #000;
-	font-family: 'lucida grande','Lucida Sans Unicode', tahoma, sans-serif;
 	font-size: 75%;
 	line-height: 1.7em;
-	background: #fff;
 	margin: 0;
 	padding: 0;
 	text-align: center;
@@ -1399,7 +1396,6 @@ table.PreferenceGroup td.Description {
 .TabLink:active,
 .TabLink:visited {
 	margin: 0;
-	display: inline;
 	white-space: nowrap;
 }
 .Count {
@@ -1781,27 +1777,6 @@ div.Popup form ul li label.RadioLabel {
 .Tag a {
 	color: #FFFFFF;
 }
-.DataList .Meta .Announcement {
-	background: #777777;
-	color: #ffffff;
-	padding: 1px 4px;
-	border-radius: 2px;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
-	font-weight: bold;
-}
-.DataList .Meta .Closed {
-	background: #555555;
-	color: #ffffff;
-	font-weight: bold;
-	padding: 1px 4px;
-	border-radius: 2px;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
-}
-
 
 /* ================================================================= Comments */
 body.Discussion #Content {

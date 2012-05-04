@@ -13,11 +13,17 @@
 	<!-- Javascript
 	================================================== -->
 	
-	<script type="text/javascript" src="/themes/VanillaBootstrap/js/less.min.js"></script>
-	<script type="text/javascript" src="/themes/VanillaBootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/themes/VanillaBootstrap/js/autosize.plugin.js"></script>
-	<script type="text/javascript" src="/themes/VanillaBootstrap/js/cookie.plugin.js"></script>
-	<script type="text/javascript" src="/themes/VanillaBootstrap/js/main.js"></script>
+	<script type="text/javascript" src="/themes/VanillaBootstrap/js/bootstrap.less.js"></script>
+	<script type="text/javascript" src="/themes/VanillaBootstrap/js/bootstrap.main.js"></script>
+	
+	<script type="text/javascript" src="/themes/VanillaBootstrap/js/plugin.autosize.js"></script>
+	<script type="text/javascript" src="/themes/VanillaBootstrap/js/plugin.cookie.js"></script>
+	
+	<script type="text/javascript" src="/themes/VanillaBootstrap/js/vanilla.main.js"></script>
+	
+	<!-- Google Prettify
+	================================================== -->
+	
 	<script type="text/javascript" src="/themes/VanillaBootstrap/design/prettify/prettify.js"></script>
 	
 </head>

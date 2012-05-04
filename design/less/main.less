@@ -3,6 +3,11 @@
 
 @import "bootstrap/bootstrap.less";
 
+// Import Custom styles
+// -------------------------------------------------//
+
+@import "custom.less";
+
 /*--------------------------------------------------*/
 /* If you want to embed your Vanilla forum, uncomment
 the following line to enable the special embed.less */
@@ -20,8 +25,8 @@ the following line to enable the special embed.less */
 /* The following files are stylesheets for plugins */
 /*--------------------------------------------------*/
 
-@import "plugins/QnA.less";
-//@import "plugins/WYSIWIG.less";
+//@import "plugins/CLEditor.less"; //CLEditor Plugin
+@import "plugins/QnA.less"; //QnA Plugin
 
 // Additional variables
 // -------------------------------------------------//
@@ -30,6 +35,18 @@ the following line to enable the special embed.less */
 
 @whiteSmoke: whiteSmoke;
 @whiterSmoke: #F9F9F9;
+
+@btnPrimaryBackground: #2797D9;
+@btnPrimaryBackgroundHighlight: #117CC0;
+
+// Mixins
+// -------------------------------------------------//
+
+.fontIcon(@icon) {
+	font-family: FontAwesome;
+	font-weight: normal;
+	content: @icon;
+	}
 
 // Main elements
 // -------------------------------------------------//
@@ -53,6 +70,19 @@ ul, ol {
 	margin: 0;
 	}
 
+form {
+	margin: 0;
+	}
+
+body.Activity .Content,
+body.Categories .Content,
+body.Discussions .Content,
+body.Discussion .Content,
+body.Drafts .Content {
+	border: 1px solid @tableBorder;
+	.border-radius(4px);
+	}
+
 body.Entry .Panel,
 body.Conversations.add .Panel,
 body.Vanilla.Post .Panel {
@@ -66,33 +96,26 @@ body.Vanilla.Post .Content {
 	margin-left: 0;
 	}
 
-// Buttons
+// Modals
 // -------------------------------------------------//
 
-.btn-primary {
-	background-color: #1E8CCF;
-	background-image: -moz-linear-gradient(top,#2797D9,#117CC0);
-	background-image: -ms-linear-gradient(top,#2797D9,#117CC0);
-	background-image: -webkit-gradient(linear,0 0,0 100%,from(#2797D9),to(#117CC0));
-	background-image: -webkit-linear-gradient(top,#2797D9,#117CC0);
-	background-image: -o-linear-gradient(top,#2797D9,#117CC0);
-	background-image: linear-gradient(top,#2797D9,#117CC0);
-	background-repeat: repeat-x;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2797d9',endColorstr='#117cc0',GradientType=0);
-	border-color: #117CC0 #117CC0 #0B4F7A;
-	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-	&:hover,
-	&:active,
-	&.active,
-	&.disabled,
-	&[disabled] {
-		background-color: #117CC0;
+#Popup {
+	
+	.Content {
+		border: none;
 		}
-	&:active,
-	&.active {
-		background-color: #0D5E91 9;
+	
+	input.Button {
+		font-size: 13px;
+		&:focus {
+			outline: none;
+			}
 		}
+	
 	}
+
+// Buttons
+// -------------------------------------------------//
 
 input[disabled],
 select[disabled],
@@ -149,7 +172,32 @@ a.BigButton {
 		.btn-info();
 		}
 	}
-	
+
+a.SignInPopup {
+	.btn-info();
+	}
+
+a.ApplyButton {
+	.btn-primary();
+	}
+
+li.Active a {
+	&.Button,
+	&.TabLink {
+		background-color: darken(@white, 10%);
+		background-color: darken(@white, 15%) e("\9");
+		background-image: none;
+		outline: 0;
+		.box-shadow(~"inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)");
+		}
+	&.PreviewButton {
+		background: @btnPrimaryBackgroundHighlight;
+		&.TabLink {
+			background: @btnInfoBackgroundHighlight;
+			}
+		}
+	}
+
 // Widgets, panels and containers
 // -------------------------------------------------//
 
@@ -162,11 +210,11 @@ a.BigButton {
 	
 	> h4 {
 		color: @grayDark;
-		padding: 10px 15px;
-		margin: -10px -15px 10px;
 		background-color: @whiteSmoke;
 		border-bottom: 1px solid @tableBorder;
 		.border-radius(4px 4px 0 0);
+		.whiteBorderTop();
+		margin: -10px -15px 10px;
 		a {
 			color: @grayDark;
 			}
@@ -176,9 +224,7 @@ a.BigButton {
 		> h4 {
 			a:after {
 				float: right;
-				font-family: FontAwesome;
-				font-weight: normal;
-				content: "\f00b";
+				.fontIcon("\f00b");
 				}
 			}
 		}
@@ -186,9 +232,12 @@ a.BigButton {
 	&.BoxSearch {
 		background: @whiteSmoke;
 		form {
-			margin: 0;
+			.whiteBorderTop();
 			input {
+				width: 100%;
 				margin: 0;
+				height: auto;
+				.box-sizing(border-box);
 				}
 			#Form_Go {
 				display: none;
@@ -205,8 +254,8 @@ a.BigButton {
 	
 	.PanelInfo {
 		border-top: none;
+		margin: -10px -15px;
 		&.PanelCategories {
-			margin: -10px -15px;
 			li {
 				&.Heading {
 					background: @whiteSmoke;
@@ -216,9 +265,7 @@ a.BigButton {
 					font-weight: bold;
 					&:before {
 						color: @grayLight;
-						font-family: FontAwesome;
-						font-weight: normal;
-						content: "\f07b";
+						.fontIcon("\f07b");
 						margin-right: 5px;
 						}
 					&:hover {
@@ -233,14 +280,14 @@ a.BigButton {
 						}
 					}
 				&.Depth3 {
-					padding: 8px 15px 8px 32px;
+					padding: 6px 15px 6px 32px;
 					}
 				}
 			}
 		li {
 			background: @whiterSmoke;
 			border-bottom: 1px solid @tableBorder;
-			padding: 8px 15px;
+			padding: 6px 15px;
 			&:last-child {
 				border-bottom: none;
 				.border-radius(0 0 4px 4px);
@@ -252,6 +299,15 @@ a.BigButton {
 			}
 		}
 	
+	}
+
+// Profile edit
+// -------------------------------------------------//
+
+.Thumbnail {
+	img {
+		max-width: inherit;
+		}
 	}
 
 // Login dropdown
@@ -304,6 +360,13 @@ a.BigButton {
 // Tabs
 // -------------------------------------------------//
 
+.whiteBorderTop {
+	padding: 10px 15px;
+	margin: -10px -15px;
+	border-top: 1px solid white;
+	.border-radius(4px 4px 0 0);
+	}
+
 .DiscussionsTabs,
 .DiscussionTabs,
 .ActivityTabs,
@@ -311,7 +374,8 @@ a.BigButton {
 .CategoryHeadings,
 .CategoryTabs {
 	background: @whiteSmoke;
-	border: 1px solid @tableBorder;
+	border-top: 1px solid white;
+	border-bottom: 1px solid @tableBorder;
 	padding: 10px 15px;
 	.border-radius(4px 4px 0 0);
 	
@@ -322,6 +386,10 @@ a.BigButton {
 		margin: 10px -15px -10px;
 		}
 		
+	}
+
+.SearchTabs {
+	display: none;
 	}
 
 .HeadingTabs {
@@ -337,8 +405,6 @@ a.BigButton {
 .DataList {
 	
 	&.MessageList {
-		border: solid @tableBorder;
-		border-width: 0 1px;
 		padding: 0;
 		margin-bottom: 0;
 		.Item {
@@ -348,9 +414,46 @@ a.BigButton {
 			&:last-child {
 				border-bottom: none;
 				}
+			.CommentInfo {
+				margin: 4px 0 0;
+				}
 			}
 		}
 	
+	&.Discussions {
+		.Item {
+			background: white;
+			padding: 4px 6px;
+			border-bottom: 1px solid @whiteSmoke;
+			.Title{
+				font-size: 16px;
+				padding: 4px 0;
+				}
+			.Meta {
+				padding: 4px 0;
+				}
+			&:last-child {
+				border-bottom: none;
+				.border-radius(0 0 4px 4px);
+				}
+			}
+		}
+	
+	}
+
+// New Discussion
+// -------------------------------------------------//
+
+#DiscussionForm	{
+	input.InputBox {
+		height: auto;
+		width: 100%;
+		.box-sizing(border-box);
+		}
+	textarea.TextBox {
+		width: 100%;
+		.box-sizing(border-box);
+		}
 	}
 
 // Comments
@@ -367,7 +470,8 @@ form#Form_Comment {
 
 .CommentForm {
 	background: @whiteSmoke;
-	border: 1px solid @tableBorder;
+	border-top: 1px solid @tableBorder;
+	border-bottom: none;
 	.border-radius(0 0 4px 4px);
 
 	label {
@@ -382,8 +486,19 @@ form#Form_Comment {
 			}
 		}
 	textarea.TextBox {
-		height: 40px;
-		min-height: 40px;
+		height: 50px;
+		min-height: 50px;
+		width: 100%;
+		.box-sizing(border-box);
+		}
+	.Preview {
+		width: 100%;
+		background: white;
+		border: 1px solid @tableBorder;
+		margin: 0;
+		.box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.05));
+		.border-radius(3px);
+		.box-sizing(border-box);
 		}
 	}
 	
@@ -391,8 +506,40 @@ form#Form_Comment {
 	padding: 10px 15px;
 	}
 
+.Foot {
+	background: @whiteSmoke;
+	border-top: 1px solid @tableBorder;
+	border-bottom: none;
+	padding: 10px 15px;
+	.border-radius(0 0 4px 4px);
+	.Note {
+		line-height: 28px;
+		&.Closed {
+			.label();
+			background-color: @errorText;
+			line-height: 26px;
+			margin: 1px 0 0;
+			padding: 0 8px;
+			}
+		}
+	}
+
+// Bookmarks
+// -------------------------------------------------//
+
+body.Discussion a.Bookmark {
+	margin: 2px 0 0 8px;
+	}
+
 // Errors
 // -------------------------------------------------//
+
+.Empty {
+	background: @whiterSmoke;
+	margin: 0;
+	padding: 10px 15px;
+	.border-radius(0 0 4px 4px);
+	}
 
 .Errors ul {
 	width: 100%;
@@ -407,10 +554,20 @@ form#Form_Comment {
 // Labels
 // -------------------------------------------------//
 
-.Count,
+span.Announcement {
+	.label();
+	background-color: @infoText;
+	}
+
+span.Count,
 .TabLink span {
 	.label();
 	background-color: @infoText;
+	}
+
+span.Closed {
+	.label();
+	background-color: @errorText;
 	}
 
 // Inputs
@@ -418,5 +575,14 @@ form#Form_Comment {
 
 .TextBoxWrapper {
 	width: auto;
-	padding-right: 10px;
+	padding-right: 0;
+	}
+
+// Credits
+// -------------------------------------------------//
+
+.well.credits {
+	text-align: center;
+	.box-shadow(none);
+	padding: 10px 15px;
 	}
