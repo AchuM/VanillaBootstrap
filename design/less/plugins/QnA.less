@@ -34,7 +34,34 @@
 	content: "\f057";
 	}	
 
+.QnA-Tag-Question {
+	.label();
+	background-color: @orange;
+	}
+
 .QnA-Tag-Accepted {
 	.label();
+	background-color: @green;
+	}
+
+.QnA-Tag-Answered {
+	.label();
 	background-color: @successText;
+	}
+
+#QnA_Question {
+	.btn-warning();
+	}
+
+#QnA_Discussion {
+	.btn-success();
+	}
+
+li.Active a {
+	&#QnA_Discussion {
+		background: @btnSuccessBackgroundHighlight;
+		}
+	&#QnA_Question {
+		background: @btnWarningBackgroundHighlight;
+		}
 	}

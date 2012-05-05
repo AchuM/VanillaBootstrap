@@ -25,8 +25,12 @@ the following line to enable the special embed.less */
 /* The following files are stylesheets for plugins */
 /*--------------------------------------------------*/
 
-//@import "plugins/CLEditor.less"; //CLEditor Plugin
-@import "plugins/QnA.less"; //QnA Plugin
+//@import "plugins/CLEditor.less"; 	//CLEditor Plugin
+@import "plugins/Emotify.less"; 	//Emotify Plugin
+@import "plugins/LastEdited.less"; 	//Last Edited Plugin
+@import "plugins/Flagging.less";	//Flagging Plugin
+@import "plugins/QnA.less"; 		//QnA Plugin
+@import "plugins/Signatures.less"; 	//Signatures Plugin
 
 // Additional variables
 // -------------------------------------------------//
@@ -46,6 +50,18 @@ the following line to enable the special embed.less */
 	font-family: FontAwesome;
 	font-weight: normal;
 	content: @icon;
+	}
+	
+.legend {
+	display: block;
+	width: 100%;
+	padding: 0;
+	margin-bottom: 27px;
+	font-size: 19.5px;
+	line-height: 36px;
+	color: #333;
+	border: 0;
+	border-bottom: 1px solid @grayLighter;
 	}
 
 // Main elements
@@ -72,15 +88,28 @@ ul, ol {
 
 form {
 	margin: 0;
+	li {
+		margin: 10px 0 0;
+		&:first-child {
+			margin: 0;
+			}
+		}
 	}
 
 body.Activity .Content,
-body.Categories .Content,
+body.Categories.all .Content,
+body.Categories.discussions .CategoryBox,
+body.Conversations .Content,
 body.Discussions .Content,
 body.Discussion .Content,
-body.Drafts .Content {
+body.Drafts .Content,
+body.Profile .Content {
 	border: 1px solid @tableBorder;
 	.border-radius(4px);
+	}
+
+body.Categories.discussions .CategoryBox {
+	margin-bottom: 10px;
 	}
 
 body.Entry .Panel,
@@ -99,19 +128,182 @@ body.Vanilla.Post .Content {
 // Modals
 // -------------------------------------------------//
 
+.Overlay {
+	background: rgba(0,0,0,0.8);
+	z-index: @zindexModal;
+	}
+
 #Popup {
 	
-	.Content {
+	.Box {
 		border: none;
+		background: none;
+		padding: 0;
 		}
 	
-	input.Button {
-		font-size: 13px;
-		&:focus {
-			outline: none;
+	.Border {
+		.modal();
+		padding: 0;
+		margin: -250px 0 0 -250px;
+		}
+		
+	.Body {
+		background: none;
+		padding: 10px 15px;
+		.Content {
+			border: none;
+			.border-radius(6px);
+			h1, h2 {
+				font-size: 18px;
+				line-height: 27px;
+				margin: -10px -15px 15px;
+				font-weight: bold;
+				.modal-header();
+				}
+			h3 {
+				padding: 0 0 9px !important;
+				}
+			p {
+				padding: 0;
+				}
+			form {
+				.modal-body();
+				overflow-x: visible;
+				overflow-y: visible;
+				padding: 0;
+				}
+			table {
+				width: 100%;
+				thead td {
+					border: solid @tableBorder;
+					border-width: 1px 0;
+					padding: 2px 6px;
+					}
+				}
+			.Info {
+				margin-top: 0;
+				}
+				
+			.SingleEntryMethod,
+			.MultipleEntryMethods {
+				width: 100%;
+				}
+				
+			}
+		.Footer {
+			clear: both;
+			.modal-footer();
+			margin: 15px -15px -10px;
+			.Close {
+				.close();
+				top: 14px;
+				font-size: 24px;
+				font-weight: normal;
+				}
+			}
+		input.Button {
+			font-size: 13px;
+			&:focus {
+				outline: none;
+				}
 			}
 		}
-	
+	}
+
+// Pagination
+// -------------------------------------------------//
+
+#PagerMore {
+	text-align: center;
+	}
+
+body.Discussions .NumberedPager {
+	position: absolute;
+	margin: 10px 0 0;
+	}
+
+body.Discussion .NumberedPager {
+	border-width: 1px 0 0;
+	.border-radius(0);
+	}
+
+.NumberedPager {
+	border: 1px solid @tableBorder;
+	.border-radius(3px);
+	a, span {
+		font-size: 13px;
+		font-weight: normal;
+		display: inline-block;
+		line-height: 34px;
+		padding: 0 14px;
+		border-left: 1px solid @tableBorder;
+		&.Highlight {
+			background: @whiteSmoke;
+			}
+		&.Next,
+		&.Previous {
+			margin: 0;
+			font: 0/0 a;
+			&:after {
+				font-size: 13px;
+				line-height: 34px;
+				}
+			}
+		&.Next {
+			&:after {
+				content: "»";
+				}
+			}
+		&.Previous {
+			&:after {
+				content: "«";
+				}
+			}
+		}
+	a {
+		&:hover {
+			background: @whiteSmoke;
+			}
+		}
+	&:first-child {
+		border-left: none;
+		}
+	}
+
+// Forms
+// -------------------------------------------------//
+
+form {
+	.form-horizontal();
+	}
+
+textarea {
+	.box-sizing(border-box);
+	}
+
+input {
+	height: 28px;
+	.box-sizing(border-box);
+	}
+
+.CheckBoxLabel {
+	.checkbox();
+	padding-left: 0;
+	input[type="checkbox"] {
+		float: left;
+		margin-right: 5px;
+		}
+	}
+
+.RadioLabel {
+	display: block;
+	.checkbox();
+	padding-left: 0;
+	input[type="radio"] {
+		float: left;
+		margin-right: 5px;
+		margin-left: 1px;
+		}
 	}
 
 // Buttons
@@ -133,11 +325,6 @@ a.Button,
 	.btn();
 	}
 
-.MenuTitle {
-	.btn();
-	.btn-mini();
-	}
-
 .Buttons {
 	.Back {
 		display: none;
@@ -152,6 +339,9 @@ a.BigButton {
 	margin: 0 0 10px;
 	font-size: 15px;
 	padding: 8px 0;
+	&.ClearConversation {
+		.btn-danger();
+		}
 	} 
 
 .Cancel {
@@ -173,7 +363,13 @@ a.BigButton {
 		}
 	}
 
-a.SignInPopup {
+#Form_Share.Button {
+	.btn-primary();
+	margin-top: 5px;
+	}
+
+.Panel a.SignInPopup,
+.Content a.SignInPopup {
 	.btn-info();
 	}
 
@@ -237,7 +433,6 @@ li.Active a {
 				width: 100%;
 				margin: 0;
 				height: auto;
-				.box-sizing(border-box);
 				}
 			#Form_Go {
 				display: none;
@@ -301,58 +496,446 @@ li.Active a {
 	
 	}
 
-// Profile edit
+// Navbar dropdown
 // -------------------------------------------------//
 
-.Thumbnail {
-	img {
-		max-width: inherit;
+.nav .dropdown-menu a {
+	span {
+		.label();
+		background: @infoText;
+		}
+	&:hover span {
+		background: @white;
+		color: @linkColor;
 		}
 	}
 
-// Login dropdown
+// Login pages
 // -------------------------------------------------//
 
-.login-dropdown {
-	padding: 15px;
-	form {
-		margin-bottom: 0;
+.SingleEntryMethod {
+	width: 470px;
+	h1 {
+		.legend();
+		font-weight: normal;
+		margin-bottom: 15px;
 		}
-	.UsernameLabel {
-		span {
-			font-size: 14px;
-			}
+	li {
+		margin: 10px 0 0;
 		}
-	.PasswordLabel {
-		padding-top: 10px;
-		span {
-			font-size: 14px;
-			}
-		}
-	fieldset {
-		&.RememberMe {
+	#Form_User_SignIn {
+		display: block !important;
+		label[for="Form_Email"],
+		label[for="Form_Password"] {
+			display: inline-block;
 			text-align: right;
-			label {
+			font-weight: normal;
+			width: 130px;
+			margin-right: 10px;
+			}
+		input {
+			&#Form_Password {
+				width: 210px;
+				border-right: none;
+				.border-radius(3px 0 0 3px);
+				}
+			&#Form_Email {
+				width: 280px;
+				}
+			&#Form_SignIn {
+				.btn-primary();
+				float: right;
+				position: relative;
+				right: 45px;
+				width: 70px;
+				margin: 0;
+				}
+			}
+		.ForgotPassword {
+			.btn();
+			.btn-info();
+			margin: 0;
+			width: 70px;
+			.border-radius(0 3px 3px 0);
+			.box-sizing(border-box);
+			}
+		label[for="SignInRememberMe"] {
+			position: relative;
+			left: 145px;
+			width: 210px;
+			padding: 5px 0;
+			margin: 0;
+			}
+		.Buttons {
+			margin: 15px 0 0;
+			}
+		.CreateAccount {
+			position: relative;
+			left: 145px;
+			width: 260px;
+			}
+		}
+	
+	#Form_User_Password {
+		label[for="Form_Email"] {
+			margin-top: 15px;
+			display: inline-block;
+			text-align: right;
+			font-weight: normal;
+			width: 130px;
+			margin-right: 10px;
+			}
+		input {
+			&.InputBox {
+				width: 280px;
+				margin-top: -20px;
+				}
+			&#Form_Requestanewpassword {
+				display: inline-block;
+				position: relative;
+				font-size: 12px;
+				left: 145px;
+				width: 160px;
+				border-right: none;
+				.border-radius(3px 0 0 3px);
+				.box-sizing(border-box);
+				}
+			}
+		.Buttons {
+			margin-top: 0;
+			div {
+				display: inline-block;
+				float: right;
+				position: relative;
+				right: 45px;
+				}
+			a {
+				.btn();
+				font-size: 12px;
+				margin: 10px 0;
+				width: 120px;
+				.border-radius(0 3px 3px 0);
+				.box-sizing(border-box);
+				}
+			}
+		}
+	
+	}
+
+.MultipleEntryMethods {
+	width: 470px;
+	
+	.MainForm {
+		float: left;
+		margin-bottom: 15px;
+		.box-sizing(border-box);
+		}
+	.Methods {
+		display: block !important;
+		position: relative;
+		float: right;
+		top: 0;
+		padding: 15px 0 15px 15px;
+		margin-top: -15px;
+		border-color: transparent;
+		.box-sizing(border-box);
+		}
+		
+	h1 {
+		.legend();
+		font-weight: normal;
+		margin-bottom: 15px;
+		}
+	li {
+		margin: 10px 0 0;
+		&:first-child {
+			margin: 0;
+			}
+		}
+	.Errors {
+		width: 260px;
+		}
+		
+	#Form_User_SignIn {
+		display: block !important;
+		label[for="Form_Email"],
+		label[for="Form_Password"] {
+			font-weight: normal;
+			}
+		input {
+			&#Form_Password {
+				width: 210px;
+				border-right: none;
+				.border-radius(3px 0 0 3px);
+				}
+			&#Form_Email {
+				width: 280px;
+				}
+			&#Form_SignIn {
+				.btn-primary();
+				float: right;
+				width: 70px;
+				margin: 0;
+				}
+			}
+		.ForgotPassword {
+			.btn();
+			.btn-info();
+			margin: 0;
+			width: 70px;
+			.border-radius(0 3px 3px 0);
+			.box-sizing(border-box);
+			}
+		label[for="SignInRememberMe"] {
+			width: 210px;
+			padding: 5px 0;
+			margin: 0;
+			}
+		.Buttons {
+			margin: 15px 0 0;
+			}
+		.CreateAccount {
+			width: 280px;
+			}
+		}
+	
+	#Form_User_Password {
+		label[for="Form_Email"] {
+			font-weight: normal;
+			margin-top: 15px;
+			}
+		input {
+			&.InputBox {
+				width: 280px;
+				}
+			&#Form_Requestanewpassword {
+				display: inline-block;
 				float: left;
-				line-height: 28px;
-				margin-top: 5px !important;
-				margin-left: 0 !important;
-				span {
-					font-size: 14px;
-					color: @grayLight;
-					margin-left: 3px;
+				font-size: 12px;
+				width: 160px;
+				border-right: none;
+				.border-radius(3px 0 0 3px);
+				.box-sizing(border-box);
+				}
+			}
+		.Buttons {
+			margin-top: 0;
+			div {
+				display: inline-block;
+				float: right;
+				position: relative;
+				}
+			a {
+				.btn();
+				font-size: 12px;
+				margin: 10px 0;
+				width: 120px;
+				.border-radius(0 3px 3px 0);
+				.box-sizing(border-box);
+				}
+			}
+		}
+	
+	}
+
+#FacebookAuth,
+#GoogleAuth,
+#OpenIDAuth,
+#TwitterAuth {
+	float: right;
+	padding: 3px;
+	}
+
+// Request password page
+// -------------------------------------------------//
+
+body.Entry.passwordrequest,
+.Popup {
+	.Content {
+		float: none;
+		.center-block();
+		width: 470px;
+		h1 {
+			.legend();
+			font-weight: normal;
+			margin-bottom: 15px;
+			}
+		.Box {
+			border: none;
+			background: none;
+			padding: 0;
+			#Form_User_Password {
+				label[for="Form_Email"] {
+					font-size: 13px;
+					display: inline-block;
+					text-align: right;
+					font-weight: normal;
+					width: 130px;
+					padding: 0;
+						margin-right: 10px;
 					}
 				input {
-					margin: 0;
+					&.InputBox {
+						width: 310px;
+						margin-top: -20px;
+						}
+					&#Form_Requestanewpassword {
+						display: inline-block;
+						position: relative;
+						left: 145px;
+						width: 180px;
+						border-right: none;
+						.border-radius(3px 0 0 3px);
+						.box-sizing(border-box);
+						}
+					}
+				.Buttons {
+					margin-top: 0;
+					div {
+						display: inline-block;
+						float: right;
+						position: relative;
+						right: 15px;
+						}
+					a {
+						.btn();
+						margin: 10px 0;
+						width: 130px;
+						.border-radius(0 3px 3px 0);
+						.box-sizing(border-box);
+						}
 					}
 				}
 			}
 		}
-	.CreateAccount {
-		margin-top: 10px;
-		margin-bottom: 0;
-		a {
-			padding-left: 0;
+	}
+
+// Apply for membership page
+// -------------------------------------------------//
+
+body.Entry.register {
+	.Content {
+		float: none;
+		.center-block();
+		width: 470px;
+		.Box {
+			border: none;
+			background: none;
+			padding: 0;
+			}
+		h1 {
+			.legend();
+			font-weight: normal;
+			margin-bottom: 15px;
+			}
+		li {
+			margin: 10px 0;
+			&:first-child {
+				margin: 0;
+				}
+			}
+		#Form_User_Register {
+			label[for="Form_InvitationCode"],
+			label[for="Form_Email"],
+			label[for="Form_Name"],
+			label[for="Form_Password"],
+			label[for="Form_PasswordMatch"],
+			label[for="Form_Gender"] {
+				display: inline-block;
+				text-align: right;
+				font-size: 13px;
+				font-weight: normal;
+				width: 130px;
+				margin-right: 10px;
+				}
+			label.RadioLabel {
+				width: auto;
+				display: inline-block;
+				text-align: left;
+				margin-right: 20px;
+				}
+			input.InputBox {
+				width: 280px;
+				}
+			textarea.TextBox {
+				width: 100%;
+				.box-sizing(border-box);
+				}
+			}
+		.Buttons {
+			.form-actions();
+			.Button {
+				.btn-primary();
+				margin: 0;
+				}
+			}
+		}
+	}
+
+// Conversations
+// -------------------------------------------------//
+
+#Form_Conversation {
+	textarea {
+		&#Form_To {
+			min-height: 28px;
+			}
+		}
+	}
+
+.ac_results {
+	width: auto !important;
+	.dropdown-menu();
+	z-index: @zindexModal;
+	.box-sizing(border-box);
+	li {
+		&.ac_over {
+			color: @dropdownLinkColorHover;
+			background: @linkColor;
+			strong {
+				background: none;
+				}
+			}
+		}
+	}
+
+body.Conversations.Index {
+	.Content {
+		> h1 {
+			background: @whiteSmoke;
+			border-top: 1px solid white;
+			border-bottom: 1px solid @tableBorder;
+			padding: 10px 15px;
+			font-size: 20px;
+			line-height: 28px;
+			.border-radius(4px 4px 0 0);
+			}
+		.MessageList {
+			.Item {
+				background: white;
+				padding: 10px 15px 4px;
+				border-bottom: 1px solid whiteSmoke;
+				&:last-child {
+					border-bottom: none;
+					}
+				}
+			}
+		#MessageForm {
+			padding: 10px 15px;
+			background: @whiteSmoke;
+			border-top: 1px solid @tableBorder;
+			border-bottom: none;
+			h2 {
+				font-size: 13px;
+				font-weight: normal;
+				line-height: 18px;
+				color: darken(@grayLight, 10%);
+				margin-bottom: 5px;
+				}
+			textarea.MessageBox {
+				height: 50px;
+				min-height: 50px;
+				}
 			}
 		}
 	}
@@ -372,7 +955,9 @@ li.Active a {
 .ActivityTabs,
 .ProfileTabs,
 .CategoryHeadings,
-.CategoryTabs {
+.CategoryTabs,
+.Profile .User,
+.ConversationsTabs {
 	background: @whiteSmoke;
 	border-top: 1px solid white;
 	border-bottom: 1px solid @tableBorder;
@@ -399,6 +984,24 @@ li.Active a {
 		}
 	}
 
+.Tabs .AdminCheck {
+	position: absolute;
+	right: 26px;
+	top: 0;
+	height: 20%;
+	margin: 30% 0;
+	}
+
+span.AdminCheck {
+	input {
+		margin: 6px 0;
+		}
+	}
+
+div.Options {
+	margin: 4px 4px 0 0;
+	}
+
 // Datalist
 // -------------------------------------------------//
 
@@ -418,6 +1021,9 @@ li.Active a {
 				margin: 4px 0 0;
 				}
 			}
+		.Options {
+			margin: 2px 6px 0 0;
+			}
 		}
 	
 	&.Discussions {
@@ -431,6 +1037,11 @@ li.Active a {
 				}
 			.Meta {
 				padding: 4px 0;
+				strong {
+					color: white;
+					background: @linkColor;
+					padding: 3px 4px;
+					}
 				}
 			&:last-child {
 				border-bottom: none;
@@ -439,20 +1050,235 @@ li.Active a {
 			}
 		}
 	
+	&.Drafts {
+		.Item {
+			background: white;
+			padding: 10px 6px;
+			border-bottom: 1px solid @whiteSmoke;
+			&:last-child {
+				border-bottom: none;
+				.border-radius(0 0 4px 4px);
+				}
+			.Excerpt {
+				margin: 10px 0 0;
+				}
+			}
+		}
+	
+	&.Activities {
+		margin-top: 0;
+		border-top: none;
+		.Item {
+			background: white;
+			padding: 10px 15px;
+			border-bottom: 1px solid @whiteSmoke;
+			&:last-child {
+				border-bottom: none;
+				.border-radius(0 0 4px 4px);
+				}
+			}
+		}
+	
+	&.Conversations {
+		.Item {
+			background: white;
+			padding: 10px 6px;
+			border-bottom: 1px solid @whiteSmoke;
+			&:last-child {
+				border-bottom: none;
+				.border-radius(0 0 4px 4px);
+				}
+			.MetaItem {
+				margin-right: 12px;
+				}
+			strong.MetaItem {
+				color: white;
+				background: @linkColor;
+				padding: 3px 4px;
+				}
+			}
+		}
+	
+	&.SearchResults {
+		.Item {
+			background: white;
+			padding: 10px 6px;
+			border-bottom: 1px solid @whiteSmoke;
+			.Title {
+				font-size: 16px;
+				}
+			.Excerpt {
+				margin: 10px 0;
+				}
+			&:last-child {
+				border-bottom: none;
+				.border-radius(0 0 4px 4px);
+				}
+			}
+		}
+	
+	.OptionsMenu {
+		margin-top: 1px;
+		.MenuTitle {
+			.btn();
+			.btn-mini();
+			}
+		.MenuItems {
+			.dropdown-menu();
+			float: right;
+			right: 0;
+			left: auto;
+			a:hover {
+				color: @dropdownLinkColorHover;
+				background: @linkColor;
+				}
+			}
+		&.Open {
+			.MenuTitle {
+				background-color: darken(@white, 10%);
+				background-color: darken(@white, 15%) e("\9");
+				background-image: none;
+				outline: 0;
+				.box-shadow(~"inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)");
+				}
+			}
+		}
+	
+	}
+
+// Search
+// -------------------------------------------------//
+
+body.Search .DataList.SearchResults {
+	.Item {
+		border-bottom: 1px solid @tableBorder;
+		.Excerpt {
+			margin: 10px 0;
+			}
+		&:first-child {
+			border-top: 1px solid @tableBorder;
+			}
+		}
 	}
 
 // New Discussion
 // -------------------------------------------------//
 
 #DiscussionForm	{
+	h1 {
+		display: none;
+		}
 	input.InputBox {
 		height: auto;
 		width: 100%;
-		.box-sizing(border-box);
 		}
 	textarea.TextBox {
 		width: 100%;
+		}
+	form {
+		background: @whiteSmoke;
+		border: 1px solid @tableBorder;
+		}
+	.Tabs {
+		padding: 10px 20px;
+		margin: 0 -20px 15px;
+		background: none;
+		border-bottom: 1px solid @tableBorder;
+		}
+	}
+
+// Activity
+// -------------------------------------------------//
+
+form.Activity {
+	padding: 15px;
+	background: @whiterSmoke;
+	border-bottom: 1px solid @tableBorder;
+	textarea.TextBox {
+		width: 100%;
 		.box-sizing(border-box);
+		}
+	}
+
+// Profile
+// -------------------------------------------------//
+
+.ProfileTabs {
+	.breadcrumb();
+	border-width: 0 0 1px;
+	margin: 0;
+	.border-radius(0);
+	}
+
+.Profile {
+	.User {
+		h1 {
+			font-size: 20px;
+			line-height: 28px;
+			padding: 0;
+			}
+		}
+	}
+
+.Box.About {
+	clear: both;
+	dl {
+		margin: -10px -15px;
+		dt {
+			font-size: 12px;
+			width: 25%;
+			height: 30px;
+			line-height: 30px;
+			padding: 0 20px;
+			border-bottom: 1px solid @tableBorder;
+			&:nth-last-child(2) {
+				border-bottom: none;
+				}
+			}
+		dd {
+			font-size: 14px;
+			margin-left: 25%;
+			height: 30px;
+			line-height: 30px;
+			border-bottom: 1px solid @tableBorder;
+			&:last-child {
+				border-bottom: none;
+				}
+			}
+		}
+	}
+
+div.Box.Group {
+	.PanelInfo {
+		border-bottom: none;
+		li {
+			border-bottom: 1px solid @tableBorder;
+			&:first-child {
+				.border-radius(4px 4px 0 0);
+				}
+			&:last-child {
+				border-bottom: none;
+				}
+			}
+		}
+	}
+
+body.Profile .Panel > .Photo {
+	display: none;
+	margin: 10px 0;
+	.box-sizing(border-box);
+	img {
+		width: 100%;
+		margin: 0 auto;
+		.border-radius(4px);
+		.box-sizing(border-box);
+		.thumbnail();
+		}
+	}
+
+.Thumbnail {
+	img {
+		max-width: inherit;
 		}
 	}
 
@@ -541,13 +1367,17 @@ body.Discussion a.Bookmark {
 	.border-radius(0 0 4px 4px);
 	}
 
-.Errors ul {
-	width: 100%;
-	.btn();
-	.btn-danger();
-	li {
-		display: inline;
-		background: none !important;
+.Errors {
+	margin: 0 0 15px;
+	.box-sizing(border-box);
+	ul {
+		.btn();
+		.btn-danger();
+		display: block;
+		width: auto;
+		li {
+			display: inline;
+			}
 		}
 	}
 

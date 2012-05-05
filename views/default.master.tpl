@@ -75,40 +75,16 @@
 						</li>
 						{/if}
 						{if !$User.SignedIn}						
-						<li class="divider-vertical"></li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle signIn" data-toggle="dropdown">Have an account? 
-								<i class="icon-signin"></i> <b>Sign in</b> <b class="caret"></b>
+						<li>
+							<a href="{link path="/entry/register"}"> 
+								<i class="icon-edit"></i> <b>Sign up</b>
 							</a>
-							<ul class="dropdown-menu login-dropdown">
-								<div class="MainForm">
-									<form id="Form_User_SignIn" class="form-horizontal" method="post" action="{link path="/entry/signin"}">
-										<fieldset>
-											<input type="hidden" id="Form_hpt" name="Form/hpt" value="" style="display: none;">
-  											<label class="UsernameLabel">
-  												<span>Username or email</span>
-												<input type="text" id="Form_Email" name="Form/Email" value="" class="InputBox">
-											</label>
-												<label class="PasswordLabel">
-												<span>Password</span>
-												<input type="password" id="Form_Password" name="Form/Password" value="" class="InputBox Password">
-											</label>
-										</fieldset>
-											<fieldset class="RememberMe">
-											<label for="SignInRememberMe" class="CheckBoxLabel chechkbox">
-												<input type="checkbox" id="SignInRememberMe" name="Form/RememberMe" value="1" checked="checked">
-												<input type="hidden" name="Checkboxes[]" value="RememberMe">
-												<span>Remember me</span>
-											</label>
-											<input type="submit" id="Form_SignIn" name="Form/Sign_In" value="Sign In" class="btn btn-primary">
-										</fieldset>
-										<p class="CreateAccount">
-											<a href="{link path="/entry/signin"}">Forgot password?</a>
-											<a href="{link path="/entry/register?Target=%2F"}">Don't have an account?</a>
-										</p>
-									</form>
-								</div>
-							</ul>
+						</li>
+						<li class="divider-vertical"></li>
+						<li>
+							<a href="{link path="/entry/signin"}" class="SignInPopup">Have an account? 
+								<i class="icon-signin"></i> <b>Sign in</b>
+							</a>
 						</li>
 						{/if}
 					</ul>
