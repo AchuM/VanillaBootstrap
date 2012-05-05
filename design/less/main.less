@@ -813,7 +813,8 @@ body.Entry.passwordrequest,
 // Apply for membership page
 // -------------------------------------------------//
 
-body.Entry.register {
+body.Entry.register .container-fluid,
+body.Entry.register .container {
 	.Content {
 		float: none;
 		.center-block();
@@ -854,12 +855,29 @@ body.Entry.register {
 				text-align: left;
 				margin-right: 20px;
 				}
+			label.CheckBoxLabel {
+				clear: both;
+				}
 			input.InputBox {
 				width: 280px;
 				}
 			textarea.TextBox {
 				width: 100%;
 				.box-sizing(border-box);
+				}
+			#recaptcha_table {
+				width: 100%;
+				}
+			#recaptcha_response_field {
+				padding: 4px !important;
+				font-size: 13px;
+				line-height: 18px;
+				color: @gray !important;
+				background-color: white;
+				border: 1px solid @inputBorder !important;
+				&:focus {
+					border-color: rgba(82, 168, 236, 0.8) !important;
+					}
 				}
 			}
 		.Buttons {
