@@ -256,71 +256,11 @@ a.Small img {
   that it renders in a div with this DismissMessage class. */
 /* Messages */
 .DismissMessage a.Dismiss {
-	font-family: arial;
-	position: absolute;
-	font-size: 22px;
-	font-weight: bold;
-	line-height: 1;
-	color: #999;
-	top: 3px;
-	right: 5px;
-}
-.DismissMessage a.Dismiss,
-.DismissMessage a.Dismiss:hover {
-	border-radius: 0;
-	-moz-border-radius: 0;
-	-webkit-border-radius: 0;
-	color: #777;
-	display: block;
-	height:14px;
-	margin:0;
-	padding:1px 3px 2px 4px;
-	width:auto;
 	font-family:arial;
-	font-size:16px;
-	font-weight:bold;
-	right: -1px;
-	top: -1px;
 }
 .DismissMessage strong {
 	font-weight: bold;
 }
-.DismissMessage a.Dismiss:hover {
-	text-decoration: none;
-	border: none;
-	background: #333;
-	color: #fff;
-}
-.DismissMessage {
-	text-align: left;
-	position: relative;
-	color: #000;
-	border: none;
-	border-radius: 0;
-	-moz-border-radius: 0;
-	-webkit-border-radius: 0;
-	margin: 0 0 10px;
-	padding: 10px;
-}
-.DismissMessage p {
-	margin: 2px 0;
-}
-.DismissMessage.Info {
-	background: #f3f4f8;
-	border: 1px solid #ddd;
-}
-.DismissMessage.Warning {
-	background: #ffebe9;
-	border: 1px solid #FFCCC9;
-}
-.DismissMessage.Box {
-	background: #fff8ce;
-	border: 1px solid #c5bea4;
-	box-shadow: none;
-	-moz-box-shadow: none;
-	-webkit-box-shadow: none;
-}
-
 
 /* =================================================================== Header */
 #Head {
