@@ -12,3 +12,8 @@ jQuery(document).ready(function() {
 	jQuery('textarea').autosize();
 	
 });
+
+//recaptcha
+var RecaptchaOptions = {
+	theme : 'clean'
+};
