@@ -1103,6 +1103,34 @@ div.Options {
 			}
 		}
 	
+	&.CategoryList {
+		border: solid @tableBorder;
+		border-width: 0 1px 1px;
+		.border-radius(0 0 4px 4px);
+		.Item {
+			background: white;
+			padding: 8px 6px 8px 0;
+			border-bottom: 1px solid @whiteSmoke;
+			.ItemContent {
+				margin: 0 0 0 15px;
+				}
+			.Meta {
+				span {
+					margin-right: 12px;
+					}
+				}
+			&.CategoryHeading {
+				padding: 6px 6px 6px 0;
+				background: @whiterSmoke;
+				}
+			
+			&:last-child {
+				border-bottom: none;
+				.border-radius(0 0 4px 4px);
+				}
+			}
+		}
+	
 	&.Drafts {
 		.Item {
 			background: white;
