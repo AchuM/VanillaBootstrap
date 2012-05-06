@@ -3,23 +3,18 @@
 
 @import "bootstrap/bootstrap.less";
 
-// Import Custom styles
-// -------------------------------------------------//
-
-@import "custom.less";
-
 /*--------------------------------------------------*/
 /* If you want to embed your Vanilla forum, uncomment
 the following line to enable the special embed.less */
 /*--------------------------------------------------*/
 
-//@import "embed.less";
+//@import "skins/embed.less";
 
 /*--------------------------------------------------*/
 /* The following files are optional LESS skins */
 /*--------------------------------------------------*/
 
-//@import "linen.less";
+//@import "skins/linen.less";
 
 /*--------------------------------------------------*/
 /* The following files are stylesheets for plugins */
@@ -103,6 +98,13 @@ form {
 
 body.Categories.discussions .CategoryBox {
 	margin-bottom: 10px;
+	.DataList {
+		border-bottom: none;
+		.border-radius(0);
+		}
+	.Foot {
+		border: 1px solid @tableBorder;
+		}
 	}
 
 body.Entry .Panel,
@@ -224,6 +226,7 @@ body.Discussion .NumberedPager {
 	border: 1px solid @tableBorder;
 	.border-radius(3px);
 	a, span {
+		background: white;
 		font-size: 13px;
 		font-weight: normal;
 		display: inline-block;
@@ -243,11 +246,13 @@ body.Discussion .NumberedPager {
 				}
 			}
 		&.Next {
+			.border-radius(0 3px 3px 0);
 			&:after {
 				content: "»";
 				}
 			}
 		&.Previous {
+			.border-radius(3px 0 0 3px);
 			&:after {
 				content: "«";
 				}
@@ -919,14 +924,15 @@ body.Conversations.Index {
 	.Content {
 		> h1 {
 			background: @whiteSmoke;
-			border-top: 1px solid white;
-			border-bottom: 1px solid @tableBorder;
+			border: 1px solid @tableBorder;
 			padding: 10px 15px;
 			font-size: 20px;
 			line-height: 28px;
 			.border-radius(4px 4px 0 0);
 			}
 		.MessageList {
+			border: 1px solid @tableBorder;
+			border-width: 0 1px;
 			.Item {
 				background: white;
 				padding: 10px 15px 4px;
@@ -939,8 +945,8 @@ body.Conversations.Index {
 		#MessageForm {
 			padding: 10px 15px;
 			background: @whiteSmoke;
-			border-top: 1px solid @tableBorder;
-			border-bottom: none;
+			border: 1px solid @tableBorder;
+			margin: 0;
 			h2 {
 				font-size: 13px;
 				font-weight: normal;
@@ -1052,6 +1058,12 @@ div.Options {
 				}
 			.CommentInfo {
 				margin: 4px 0 0;
+				}
+			.Message {
+				margin: 9px 9px 9px 0;
+				}
+			.Meta {
+				padding: 4px 0;
 				}
 			}
 		.Options {
@@ -1182,6 +1194,7 @@ div.Options {
 // -------------------------------------------------//
 
 body.Search .DataList.SearchResults {
+	border: none;
 	.Item {
 		border-bottom: 1px solid @tableBorder;
 		.Excerpt {
@@ -1189,6 +1202,9 @@ body.Search .DataList.SearchResults {
 			}
 		&:first-child {
 			border-top: 1px solid @tableBorder;
+			}
+		&:last-child {
+			.border-radius(0);
 			}
 		}
 	}
@@ -1473,3 +1489,10 @@ span.Closed {
 	.box-shadow(none);
 	padding: 10px 15px;
 	}
+
+// Import Custom styles
+// This file must be placed at the end of this file,
+// to make sure that it properly overrides it.
+// -------------------------------------------------//
+
+@import "custom.less";

@@ -17,7 +17,6 @@
 	<script type="text/javascript" src="/themes/VanillaBootstrap/js/bootstrap.main.js"></script>
 	
 	<script type="text/javascript" src="/themes/VanillaBootstrap/js/plugin.autosize.js"></script>
-	<script type="text/javascript" src="/themes/VanillaBootstrap/js/plugin.cookie.js"></script>
 	
 	<script type="text/javascript" src="/themes/VanillaBootstrap/js/vanilla.main.js"></script>
 	
