@@ -924,14 +924,15 @@ body.Conversations.Index {
 	.Content {
 		> h1 {
 			background: @whiteSmoke;
-			border-top: 1px solid white;
-			border-bottom: 1px solid @tableBorder;
+			border: 1px solid @tableBorder;
 			padding: 10px 15px;
 			font-size: 20px;
 			line-height: 28px;
 			.border-radius(4px 4px 0 0);
 			}
 		.MessageList {
+			border: 1px solid @tableBorder;
+			border-width: 0 1px;
 			.Item {
 				background: white;
 				padding: 10px 15px 4px;
@@ -944,8 +945,8 @@ body.Conversations.Index {
 		#MessageForm {
 			padding: 10px 15px;
 			background: @whiteSmoke;
-			border-top: 1px solid @tableBorder;
-			border-bottom: none;
+			border: 1px solid @tableBorder;
+			margin: 0;
 			h2 {
 				font-size: 13px;
 				font-weight: normal;
