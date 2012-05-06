@@ -161,10 +161,11 @@ body.Vanilla.Post .Content {
 			p {
 				padding: 0;
 				}
-			form {
+			form,
+			.Preview {
 				.modal-body();
 				overflow-x: visible;
-				overflow-y: visible;
+				overflow-y: scroll;
 				padding: 0;
 				}
 			table {
@@ -201,6 +202,20 @@ body.Vanilla.Post .Content {
 			&:focus {
 				outline: none;
 				}
+			}
+		}
+	}
+
+body.Post.discussion #Popup {
+	.Border {
+		width: 940px;
+		max-width: 940px;
+		position: relative;
+		margin: 0 auto;
+		top: auto;
+		left: auto;
+		.Preview {
+			max-height: 100%;
 			}
 		}
 	}
@@ -1419,8 +1434,8 @@ form#Form_Comment {
 
 .Foot {
 	background: @whiteSmoke;
-	border-top: 1px solid @tableBorder;
-	border-bottom: none;
+	border: 1px solid @tableBorder;
+	border-top: none;
 	padding: 10px 15px;
 	.border-radius(0 0 4px 4px);
 	.Note {
