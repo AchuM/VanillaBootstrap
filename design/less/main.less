@@ -3,6 +3,12 @@
 
 @import "bootstrap/bootstrap.less";
 
+// Bootswatches
+// -------------------------------------------------//
+
+@import "swatches/Slate/variables.less";
+@import "swatches/Slate/bootswatch.less";
+
 /*--------------------------------------------------*/
 /* If you want to embed your Vanilla forum, uncomment
 the following line to enable the special embed.less */
@@ -30,13 +36,10 @@ the following line to enable the special embed.less */
 // Additional variables
 // -------------------------------------------------//
 
-@linkColor: #117CC0;
+@whiteSmoke: darken(@bodyBackground, 3%);
+@whiterSmoke: darken(@bodyBackground, 1%);
 
-@whiteSmoke: whiteSmoke;
-@whiterSmoke: #F9F9F9;
-
-@btnPrimaryBackground: #2797D9;
-@btnPrimaryBackgroundHighlight: #117CC0;
+@vanillaBodyBackground: lighten(@bodyBackground, 2%);
 
 // Mixins
 // -------------------------------------------------//
@@ -56,7 +59,7 @@ the following line to enable the special embed.less */
 	line-height: 36px;
 	color: #333;
 	border: 0;
-	border-bottom: 1px solid @grayLighter;
+	border-bottom: 1px solid lighten(@textColor, 10%);
 	}
 
 // Main elements
@@ -154,6 +157,7 @@ body.Vanilla.Post .Content {
 				margin: -10px -15px 15px;
 				font-weight: bold;
 				.modal-header();
+				color: @textColor;
 				}
 			h3 {
 				padding: 0 0 9px !important;
@@ -167,10 +171,11 @@ body.Vanilla.Post .Content {
 				overflow-x: visible;
 				overflow-y: scroll;
 				padding: 0;
+				border-bottom: none;
 				}
 			table {
 				width: 100%;
-				thead td {
+				td {
 					border: solid @tableBorder;
 					border-width: 1px 0;
 					padding: 2px 6px;
@@ -190,6 +195,7 @@ body.Vanilla.Post .Content {
 			clear: both;
 			.modal-footer();
 			margin: 15px -15px -10px;
+			border-top: 1px solid @tableBorder;
 			.Close {
 				.close();
 				top: 14px;
@@ -233,15 +239,22 @@ body.Discussions .NumberedPager {
 	}
 
 body.Discussion .NumberedPager {
-	border-width: 1px 0 0;
+	border-width: 0 1px 1px;
+	border-left: 1px solid @tableBorder;
 	.border-radius(0);
+	a.Next,
+	span.Next,
+	a.Previous,
+	span.Previous {
+		.border-radius(0);
+		}
 	}
 
 .NumberedPager {
 	border: 1px solid @tableBorder;
 	.border-radius(3px);
 	a, span {
-		background: white;
+		background: @vanillaBodyBackground;
 		font-size: 13px;
 		font-weight: normal;
 		display: inline-block;
@@ -256,6 +269,7 @@ body.Discussion .NumberedPager {
 			margin: 0;
 			font: 0/0 a;
 			&:after {
+				font-family: @sansFontFamily;
 				font-size: 13px;
 				line-height: 34px;
 				}
@@ -336,6 +350,9 @@ a.Button,
 .TabLink,
 .Tabs .TabLink {
 	.btn();
+	&:hover {
+		color: inherit;
+		}
 	}
 
 .Buttons {
@@ -393,8 +410,6 @@ a.ApplyButton {
 li.Active a {
 	&.Button,
 	&.TabLink {
-		background-color: darken(@white, 10%);
-		background-color: darken(@white, 15%) e("\9");
 		background-image: none;
 		outline: 0;
 		.box-shadow(~"inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)");
@@ -469,10 +484,10 @@ li.Active a {
 					background: @whiteSmoke;
 					}
 				a {
-					color: @grayDark;
+					color: darken(@textColor, 5%);
 					font-weight: bold;
 					&:before {
-						color: @grayLight;
+						color: lighten(@textColor, 40%);
 						.fontIcon("\f07b");
 						margin-right: 5px;
 						}
@@ -518,7 +533,7 @@ li.Active a {
 		background: @infoText;
 		}
 	&:hover span {
-		background: @white;
+		background: @vanillaBodyBackground;
 		color: @linkColor;
 		}
 	}
@@ -891,7 +906,7 @@ body.Entry.register .container {
 				font-size: 13px;
 				line-height: 18px;
 				color: @gray !important;
-				background-color: white;
+				background-color: @vanillaBodyBackground;
 				border: 1px solid @inputBorder !important;
 				&:focus {
 					border-color: rgba(82, 168, 236, 0.8) !important;
@@ -949,7 +964,7 @@ body.Conversations.Index {
 			border: 1px solid @tableBorder;
 			border-width: 0 1px;
 			.Item {
-				background: white;
+				background: @vanillaBodyBackground;
 				padding: 10px 15px 4px;
 				border-bottom: 1px solid whiteSmoke;
 				&:last-child {
@@ -966,7 +981,7 @@ body.Conversations.Index {
 				font-size: 13px;
 				font-weight: normal;
 				line-height: 18px;
-				color: darken(@grayLight, 10%);
+				color: darken(@textColor, 10%);
 				margin-bottom: 5px;
 				}
 			textarea.MessageBox {
@@ -983,7 +998,7 @@ body.Conversations.Index {
 .whiteBorderTop {
 	padding: 10px 15px;
 	margin: -10px -15px;
-	border-top: 1px solid white;
+	border-top: 1px solid @vanillaBodyBackground;
 	.border-radius(4px 4px 0 0);
 	}
 
@@ -1065,7 +1080,7 @@ div.Options {
 		padding: 0;
 		margin-bottom: 0;
 		.Item {
-			background: white;
+			background: @vanillaBodyBackground;
 			padding: 10px 15px 4px;
 			border-bottom: 1px solid @whiteSmoke;
 			&:last-child {
@@ -1096,7 +1111,7 @@ div.Options {
 	
 	&.Discussions {
 		.Item {
-			background: white;
+			background: @vanillaBodyBackground;
 			padding: 4px 6px;
 			border-bottom: 1px solid @whiteSmoke;
 			.Title{
@@ -1105,6 +1120,9 @@ div.Options {
 				}
 			.Meta {
 				padding: 4px 0;
+				.Category {
+					.label();
+					}
 				strong {
 					color: white;
 					background: @linkColor;
@@ -1123,7 +1141,7 @@ div.Options {
 		border-width: 0 1px 1px;
 		.border-radius(0 0 4px 4px);
 		.Item {
-			background: white;
+			background: @vanillaBodyBackground;
 			padding: 8px 6px 8px 0;
 			border-bottom: 1px solid @whiteSmoke;
 			.ItemContent {
@@ -1148,7 +1166,7 @@ div.Options {
 	
 	&.Drafts {
 		.Item {
-			background: white;
+			background: @vanillaBodyBackground;
 			padding: 10px 6px;
 			border-bottom: 1px solid @whiteSmoke;
 			&:last-child {
@@ -1164,7 +1182,7 @@ div.Options {
 	&.Activities {
 		margin-top: 0;
 		.Item {
-			background: white;
+			background: @vanillaBodyBackground;
 			padding: 10px 15px;
 			border-bottom: 1px solid @whiteSmoke;
 			&:last-child {
@@ -1176,7 +1194,7 @@ div.Options {
 	
 	&.Conversations {
 		.Item {
-			background: white;
+			background: @vanillaBodyBackground;
 			padding: 10px 6px;
 			border-bottom: 1px solid @whiteSmoke;
 			&:last-child {
@@ -1196,7 +1214,7 @@ div.Options {
 	
 	&.SearchResults {
 		.Item {
-			background: white;
+			background: @vanillaBodyBackground;
 			padding: 10px 6px;
 			border-bottom: 1px solid @whiteSmoke;
 			.Title {
@@ -1401,13 +1419,13 @@ form#Form_Comment {
 	.border-radius(0 0 4px 4px);
 
 	label {
-		color: darken(@grayLight, 10%);
+		color: lighten(@textColor, 30%);
 		}
 	.Buttons {
 		span {
 			position: relative;
 			top: 1px;
-			color: darken(@grayLight, 10%);
+			color: lighten(@textColor, 30%);
 			margin: 0 20px;
 			}
 		}
@@ -1419,7 +1437,7 @@ form#Form_Comment {
 		}
 	.Preview {
 		width: 100%;
-		background: white;
+		background: @vanillaBodyBackground;
 		border: 1px solid @tableBorder;
 		margin: 0;
 		.box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.05));
