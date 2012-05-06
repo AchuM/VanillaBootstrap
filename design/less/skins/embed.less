@@ -5,13 +5,22 @@
 html{
 	background: transparent;
 	}
+	
+body {
+	background: transparent;
+	}
 
 .container-fluid {
 		padding: 0;
 		}
 
+.nav.pull-right {
+	li:last-child a {
+		border-right: none !important;
+		}
+	}
+
 .navbar {
-	margin-right: 1px;
 	.brand {
 		display: none;
 		}
@@ -33,6 +42,7 @@ html{
 		-webkit-box-shadow: 0 0 0 transparent;
 		-moz-box-shadow: 0 0 0 transparent;
 		box-shadow: 0 0 0 transparent;
+		.box-sizing(border-box);
 		.nav {
 			> li {
 				> a {
@@ -84,16 +94,4 @@ html{
 	li.divider-vertical {
 		display: none;
 		}
-	}
-.StatBoxes {
-	display: none;
-	}
-.SingleExcerptToggle {
-	right: 0 !important;
-	}
-div.Options {
-	right: 8px !important;
-	}
-.DataList .Meta {
-	max-width: 95%;
 	}
