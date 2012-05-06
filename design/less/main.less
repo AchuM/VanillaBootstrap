@@ -59,7 +59,7 @@ the following line to enable the special embed.less */
 	line-height: 36px;
 	color: #333;
 	border: 0;
-	border-bottom: 1px solid lighten(@textColor, 10%);
+	border-bottom: 1px solid @tableBorder;
 	}
 
 // Main elements
@@ -169,9 +169,12 @@ body.Vanilla.Post .Content {
 			.Preview {
 				.modal-body();
 				overflow-x: visible;
-				overflow-y: scroll;
+				overflow-y: visible;
 				padding: 0;
 				border-bottom: none;
+				}
+			.Preview {
+				overflow-y: scroll;
 				}
 			table {
 				width: 100%;
@@ -1035,12 +1038,17 @@ body.Conversations.Index {
 		}
 	}
 
+body#vanilla_discussions_index {
+	.Tabs .AdminCheck {
+		top: 0;
+		height: 20%;
+		margin: 30% 0;
+		}
+	}
+
 .Tabs .AdminCheck {
 	position: absolute;
 	right: 26px;
-	top: 0;
-	height: 20%;
-	margin: 30% 0;
 	}
 
 span.AdminCheck {
