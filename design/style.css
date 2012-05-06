@@ -817,12 +817,8 @@ body.Activity h1 {
 	margin-left: 50px;
 	width: 400px;
 }
-.Activities .ItemContent {
-	width: 631px;
-}
 .Activities .HasPhoto .ItemContent {
 	margin-left: 53px;
-	width: 578px;
 }
 .Activities .Item .HasPhoto .ItemContent {
 	width: auto;
@@ -870,17 +866,13 @@ body.Activity h1 {
 	text-align: right;
 }
 .Activities .CommentForm textarea.TextBox {
-	width: 380px;
 	min-height: 40px;
 	height: 40px;
 	margin-bottom: 2px;
 	font-size: 12px;
 }
 .Activities .CommentForm input.Button {
-	font-size: 12px;
-	box-shadow: 0 0 1px #999;
-	-moz-box-shadow: 0 0 1px #999;
-	-webkit-box-shadow: 0 0 1px #999;  
+	font-size: 12px; 
 }
 
 
