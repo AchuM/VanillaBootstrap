@@ -37,9 +37,43 @@ Installation
 
 Locate /js/library/jquery.js and replace the contents of the file with the latest version of the jQuery library found here: http://jquery.com/
 
+As Bootstrap relies on the latest version of jQuery, this step is very important. Without the latest version of jQuery the theme might seem like it works as it's supposed to, but it's all lies! Lol, the point is that stuff like dropdowns and modals won't work unless you're using the latest version of jQuery.
+
 #### 2. Match file paths in default.master.tpl
 
-Make sure that the JS, CSS and LESS calls in default.master.tpl matches your folder structure. The default structure is http://example.com/themes/VanillaBootstrap, but if you use another structure, please correct the paths or pages won't load.
+Match file paths in default.master.tpl
+Make sure that the JS, CSS and LESS calls in views/default.master.tpl matches your folder structure. This is necessary if you have installed Vanilla in any other directory than the root directory on your server.
+
+The default structure is `src="/themes/VanillaBootstrap/..."` but if you have installed Vanilla in say a directory called "forum" you'd need to change the calls to: `src="/forum/themes/VanillaBootstrap/..."`.
+
+Make sure to include the first `/`, otherwise the files won't load correctly on pages other than your home page.
+
+For a complete example, take a look at the code below. Here we've installed Vanilla in a directory called "vanillaforum":
+
+	<!-- LESS CSS and Prettify
+	================================================== -->
+	 	
+	<link rel="stylesheet/less" type="text/css" href="/vanillaforum/themes/VanillaBootstrap/design/less/main.less">
+	<link rel="stylesheet" type="text/css" href="/vanillaforum/themes/VanillaBootstrap/design/prettify/prettify.css">
+	 
+	<!-- Javascript
+	================================================== -->
+		
+	<script type="text/javascript" src="/vanillaforum/themes/VanillaBootstrap/js/bootstrap.less.js"></script>
+	<script type="text/javascript" src="/vanillaforum/themes/VanillaBootstrap/js/bootstrap.main.js"></script>
+		
+	<script type="text/javascript" src="/vanillaforum/themes/VanillaBootstrap/js/plugin.autosize.js"></script>
+		
+	<script type="text/javascript" src="/vanillaforum/themes/VanillaBootstrap/js/vanilla.main.js"></script>
+		
+	<!-- Google Prettify
+	================================================== -->
+	
+	<script type="text/javascript" src="/vanillaforum/themes/VanillaBootstrap/design/prettify/prettify.js"></script>
+				
+Remember that you don't need to include the actual url of your website in the path, just make the path relative to your root directory.
+
+__NB:__ If you've installed Vanilla on a subdomain, then you won't need to include the name of the directory in which your subdomain exists. Although if you've installed it on subdomain, I suspect you know what you're doing anyway!
 
 #### 3. Use of Markdown is HIGHLY recommended
 
