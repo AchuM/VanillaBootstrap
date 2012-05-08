@@ -46,7 +46,7 @@
 						<li class="ActivityLink"><a href="{link path="/activity"}"><i class="icon-time"></i> Activity</a></li>
 						{if $User.SignedIn}	
 						<li>
-							<a href="{link path="messages/inbox"}">Inbox
+							<a href="{link path="messages/inbox"}"><i class="icon-inbox"></i> Inbox
 							{if $User.CountUnreadConversations} <span>{$User.CountUnreadConversations}</span>{/if}</a>
 						</li>
 						{/if}
