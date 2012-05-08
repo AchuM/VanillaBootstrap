@@ -11,6 +11,13 @@ jQuery(document).ready(function() {
 	//Autosize textareas
 	jQuery('textarea').autosize();
 	
+	//Fix subnav to top and add extra class
+	jQuery('.subnav').scrollToFixed({
+		marginTop: jQuery('.navbar').outerHeight(),
+		preFixed: function() { jQuery(this).addClass('subnav-fixed'); },
+		postFixed: function() { jQuery(this).removeClass('subnav-fixed'); }
+	});
+	
 });
 
 //recaptcha
