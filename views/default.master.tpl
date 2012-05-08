@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-ca">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	{asset name='Head'}
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,6 +44,12 @@
 					<ul class="nav">
 						<li class="DiscussionsLink"><a href="{link path="/discussions"}"><i class="icon-comments"></i> Discussions</a></li>
 						<li class="ActivityLink"><a href="{link path="/activity"}"><i class="icon-time"></i> Activity</a></li>
+						{if $User.SignedIn}	
+						<li>
+							<a href="{link path="messages/inbox"}">Inbox
+							{if $User.CountUnreadConversations} <span>{$User.CountUnreadConversations}</span>{/if}</a>
+						</li>
+						{/if}
 						{custom_menu}
 					</ul>
 					
@@ -58,10 +64,6 @@
 								<li>
 									<a href="{link path="profile"}">Profile
 									{if $User.CountNotifications} <span>{$User.CountNotifications}</span>{/if}</a>
-								</li>
-								<li>
-									<a href="{link path="messages/inbox"}">Inbox
-									{if $User.CountUnreadConversations} <span>{$User.CountUnreadConversations}</span>{/if}</a>
 								</li>
 								{if CheckPermission('Garden.Settings.Manage')}
 									<li><a href="{link path="dashboard/settings"}">Dashboard</a></li>
