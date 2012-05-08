@@ -3,7 +3,7 @@ VanillaBootstrap
 
 #### A modern Vanilla theme based on Bootstrap from Twitter
 
-This branch is used for development of the VanillaBootstrap. As I'm currently working on a version for the 2.1 branch this branch is not at all intended for use in a production environment as it's nowhere near being completed. Please refer to https://github.com/kasperisager/VanillaBootstrap/ if you want to download the latest stable build of VanillaBootstrap.
+This branch is used for development of the VanillaBootstrap theme. As I'm currently working on a version for the 2.1 branch of Vanilla this version is not at all intended for use in a production environment as it's nowhere near being completed. Please refer to https://github.com/kasperisager/VanillaBootstrap/ if you want to download the latest stable build of VanillaBootstrap.
 
 #### Versioning
 
