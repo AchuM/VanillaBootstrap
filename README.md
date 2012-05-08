@@ -11,6 +11,7 @@ Table of contents
 3. [Installation](#installation)
 4. [Features](#features)
 	1. [Styling](#styling)
+	1. [Bootswatches](#bootswatches)
 	2. [Embedding](#embedding)
 5. [Compatibility](#compatibility)
 
@@ -58,6 +59,17 @@ _"But I hate LESS! I want to use CSS instead…"_ No problem! Just add a custom.
 
 At the moment, there's a skin included in main.less which adds the Apple-style linen texture background. Just follow the instructions in main.less found in the design/less directory if you want to use this skin.
 
+#### Bootswatches
+
+In the main.less file found in the design/less directory there's a section called `// Bootswatches.` Here you'll see two lines of less which imports the included Bootswatches. By default it's set to "Vanilla" but you can change this part of the import url to match any of the 6 other Bootswatches found in the swatches directory. Say you wanted to use the United swatch, your code would look like this:
+
+`
+// Bootswatches
+// -------------------------------------------------//
+ 
+@import "swatches/United/variables.less";
+@import "swatches/United/bootswatch.less";
+`
 
 #### Embedding
 
