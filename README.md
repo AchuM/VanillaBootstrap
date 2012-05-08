@@ -63,13 +63,11 @@ At the moment, there's a skin included in main.less which adds the Apple-style l
 
 In the main.less file found in the design/less directory there's a section called `// Bootswatches.` Here you'll see two lines of less which imports the included Bootswatches. By default it's set to "Vanilla" but you can change this part of the import url to match any of the 6 other Bootswatches found in the swatches directory. Say you wanted to use the United swatch, your code would look like this:
 
-`
-// Bootswatches
-// -------------------------------------------------//
+	// Bootswatches
+	// -------------------------------------------------//
  
-@import "swatches/United/variables.less";
-@import "swatches/United/bootswatch.less";
-`
+	@import "swatches/United/variables.less";
+	@import "swatches/United/bootswatch.less";
 
 #### Embedding
 
