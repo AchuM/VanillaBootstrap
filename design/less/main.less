@@ -1,375 +1,622 @@
-// Import Bootstrap (Custom Vanilla build) and Docs
-// ---------------------------------------------------------------------------------------------------//
+// Import Bootstrap (Custom Vanilla build), Docs, Prettify and Uniform
+// ---------------------------------------------------------------------------------------------------// Import stylesheets
 
-@import "bootstrap/bootstrap.less";
-@import "docs.less";
-
+	@import "bootstrap/bootstrap";				// Bootstrap
+	@import "docs";								// Bootstrap Documentation style
+	@import url("../css/prettify.css");			// Google Code Prettify
+	@import url("../css/uniform.css");			// Uniform jQuery Plugin
 
 // Bootswatches
-// ---------------------------------------------------------------------------------------------------//
+// ---------------------------------------------------------------------------------------------------// Bootswatches
 
 // Change "Vanilla" in the url to a swatch of your liking. The included swatches can be found in the
 // swatches direcotry. Swatches included: Cerulean, Journal, Simplex, Slate, Spacelab and United.
+// NB: This version of VanillaBootstrap doesn't yet fully support Bootswatches!
 
-@import "swatches/Vanilla/variables.less";
-@import "swatches/Vanilla/bootswatch.less";
+	@import "swatches/Vanilla/variables";
+	@import "swatches/Vanilla/bootswatch";
 
-/*----------------------------------------------------------------------------------------------------*/
-/* If you want to embed your Vanilla forum, uncomment the following line to enable embed.less */
-/*----------------------------------------------------------------------------------------------------*/
+// Embed.less and Skins
+// ---------------------------------------------------------------------------------------------------// Embed.less and Skins
 
-//@import "skins/embed.less";
+	// If you want to embed your Vanilla forum, uncomment the following line to enable embed.less
 
-/*----------------------------------------------------------------------------------------------------*/
-/* The following files are optional LESS skins */
-/*----------------------------------------------------------------------------------------------------*/
+	//@import "skins/embed";
 
-//@import "skins/linen.less";
+	// The following files are optional LESS skins for use with the default Vanilla swatch
 
-/*----------------------------------------------------------------------------------------------------*/
-/* The following files are stylesheets for plugins - enable any you wish */
-/*----------------------------------------------------------------------------------------------------*/
+	//@import "skins/linen";
 
-@import "plugins/ButtonBar.less";			// Button Bar Plugin
-//@import "plugins/CLEditor.less"; 			// CLEditor Plugin
-@import "plugins/Emotify.less"; 			// Emotify Plugin
-@import "plugins/LastEdited.less"; 			// Last Edited Plugin
-@import "plugins/Flagging.less";			// Flagging Plugin
-@import "plugins/QnA.less"; 				// QnA Plugin
-@import "plugins/Signatures.less"; 			// Signatures Plugin
+// Stylesheets for Plugins
+// ---------------------------------------------------------------------------------------------------// Stylesheets for Plugins
+
+	// The following files are stylesheets for plugins - enable any you wish */
+
+	@import "plugins/ButtonBar";				// Button Bar Plugin
+	//@import "plugins/CLEditor"; 				// CLEditor Plugin
+	@import "plugins/Emotify"; 					// Emotify Plugin
+	@import "plugins/LastEdited"; 				// Last Edited Plugin
+	@import "plugins/Flagging";					// Flagging Plugin
+	@import "plugins/QnA"; 						// QnA Plugin
+	@import "plugins/Signatures"; 				// Signatures Plugin
+	@import "plugins/Tagging";					//Tagging Plugin
 
 // Additional Variables
-// ---------------------------------------------------------------------------------------------------//
+// ---------------------------------------------------------------------------------------------------// Additional Variables
 
-@whiteSmoke: darken(@bodyBackground, 3%);
-@whiterSmoke: darken(@bodyBackground, 1%);
+	@whiteSmoke: darken(@bodyBackground, 3%);
+	@whiterSmoke: darken(@bodyBackground, 1%);
 
-@vanillaBodyBackground: lighten(@bodyBackground, 2%);
+	@vanillaBodyBackground: lighten(@bodyBackground, 2%);
 
 // Mixins
-// ---------------------------------------------------------------------------------------------------//
+// ---------------------------------------------------------------------------------------------------// Mixins
 
-.fontIcon(@icon) {
-	font-family: FontAwesome;
-	font-weight: normal;
-	content: @icon;
-	}
+	.fontIcon(@icon) {
+		font-family: FontAwesome;
+		font-weight: normal;
+		content: @icon;
+		}
 	
-.legend {
-	display: block;
-	width: 100%;
-	padding: 0;
-	margin-bottom: 27px;
-	font-size: 19.5px;
-	line-height: 36px;
-	color: #333;
-	border: 0;
-	border-bottom: 1px solid @tableBorder;
-	}
+	.legend {
+		display: block;
+		width: 100%;
+		padding: 0;
+		margin-bottom: 27px;
+		font-size: 19.5px;
+		line-height: 36px;
+		color: #333;
+		border: 0;
+		border-bottom: 1px solid @tableBorder;
+		}
 
 // Basic HTML Elements
-// ---------------------------------------------------------------------------------------------------//
-
-a {
-	&:hover {
-		text-decoration: none;
+// ---------------------------------------------------------------------------------------------------// Basic HTML Elements
+	
+	body {
+		position: static;
+		padding: 40px 0;
+		font-smooth: always;
+		-webkit-font-smoothing: antialiased;
 		}
-	}
+	
+	a {
+		&:hover {
+			text-decoration: none;
+			}
+		}
+	
+	h1, h2, h3, h4, h5, h6, h7 {
+		font-weight: 300;
+		}
+	
+	ol, ul {
+		list-style: none;
+		margin: 0;
+		}
+	
+	input {
+		height: 28px;
+		.box-sizing(border-box);
+		}
 
-ol, ul {
-	list-style: none;
-	margin: 0;
-	}
+	textarea {
+		width: 100%;
+		.box-sizing(border-box);
+		}
 
-input {
-	height: 28px;
-	.box-sizing(border-box);
-	}
+	form {
+		.form-horizontal();
+		}
 
-textarea {
-	width: 100%;
-	.box-sizing(border-box);
-	}
+// Preloaders
+// ---------------------------------------------------------------------------------------------------// Preloaders
 
-form {
-	.form-horizontal();
-	}
+	.Loading {
+		width: 40px;
+		margin: 0 auto;
+		}
 
 // Advanced Form Elements
-// ---------------------------------------------------------------------------------------------------//
+// ---------------------------------------------------------------------------------------------------// Advanced Form Elements
 
-.CheckBoxLabel {
-	.checkbox();
-	padding-left: 0;
-	input[type="checkbox"] {
-		float: left;
-		margin-right: 5px;
-		}
-	}
-
-// Main Navigation
-// ---------------------------------------------------------------------------------------------------//
-
-.subnav {
-	left: 0 !important;
-	}
-
-.navbar-search {
-	margin-top: 0;
-	form {
-		padding: 4px;
-		margin-bottom: 0;
-		}
-	input[type="text"] {
-		padding-right: 26px;
-		margin-bottom: 0;
-		}
-	input[type="submit"] {
-		background: url('../images/sprites.png') 0 -196px no-repeat transparent;
-		height: 16px;
-		width: 16px;
-		padding: 0;
-		border: none;
-		position: absolute;
-		top: 10px;
-		right: 10px;
-		.hide-text();
-		.box-shadow(none);
-		}
-	}
-
-// Sidebar Navigation
-// ---------------------------------------------------------------------------------------------------//
-
-#Panel {
-
-	.FilterMenu,
-	.PanelInfo {
-		padding: 0 15px;
-		> li {
-			border-bottom: none;
-			padding: 0;
-			&:first-child {
-				border-top: none;
-				}
+	.CheckBoxLabel {
+		.checkbox();
+		padding-left: 0;
+		input[type="checkbox"] {
+			float: left;
+			margin-right: 5px;
 			}
 		}
-
-	.FilterMenu {
-		padding: 0 15px;
-		> li {
-			> a {
-				display: block;
-				margin: 0 -15px;
-				padding: 3px 15px;
-				&:hover {
-					background: @grayLighter;
-					}
-				}
-			&.Active > a {
-				color: @white;
-				text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-				background-color: @linkColor;
-				}
+	
+	.RadioLabel {
+		.checkbox();
+		padding-left: 0;
+		input[type="radio"] {
+			float: left;
+			margin-right: 5px;
+			margin-left: 1px;
 			}
 		}
-	.PanelInfo {
-		> li {
-			display: block;
-			margin: 0 -15px;
-			padding: 3px 15px;
-			&:hover {
-				background: @grayLighter;
-				}
-			&.Active {
-				background-color: @linkColor;
-				> strong a {
-					color: @white;
-					text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-					}
-				}
-			}
-		}
-	}
-
-// Buttons
-// ---------------------------------------------------------------------------------------------------//
-
-// Basic Buttons
-
-.Button {
-	.btn();
-	}
-
-// BigButtons
-
-.BigButton {
-	.btn();
-	.btn-primary();
-	display: block;
-	margin: 10px 0;
-	}
-
-// Post Comment Buttons
-
-.CommentForm {
-
-	.PreviewButton {
-		.btn();
-		margin: 0;
-		&.Hidden {
-			display: none;
-			}	
-		}
-
-	.WriteButton {
-		.btn();
-		padding: 5px 10px 6px;
-		margin: 0;
-		&.Hidden {
-			display: none;
-			}
-		}
-
-	.DraftButton {
-		.btn();
-		.btn-info();
-		margin: 0;
-		}
-		
-	.CommentButton {
-		.btn();
-		.btn-primary();
-		}
-
-	}
 
 // Textarea Forms
-// ---------------------------------------------------------------------------------------------------//
+// ---------------------------------------------------------------------------------------------------// Textarea Forms
 
-.TextBoxWrapper {
-	padding-right: 0;
-	}
+	.TextBoxWrapper {
+		padding-right: 0;
+		}
 
 // Vanilla Forum Forms
-// ---------------------------------------------------------------------------------------------------//
+// ---------------------------------------------------------------------------------------------------// Vanilla Forum Forms
 
-// Comment Forum
-
-#Form_Comment {
-	margin-bottom: 0;
-	}
-
-// Modal Windows
-// ---------------------------------------------------------------------------------------------------//
-
-.Overlay {
-	background: rgba(0,0,0,0.8);
-	z-index: @zindexModal;
-	}
-
-#Popup {
-	
-	.Box {
-		border: none;
+	.FormWrapper {
+		padding: 0;
 		background: none;
-		padding: 0;
+		}
+
+	// Comment Form
+
+	#Form_Comment {
+		margin-bottom: 0;
+		}
+
+	// Activity form
+	
+	form.Activity {
+		margin: 10px 0;
+		textarea#Form_Comment.TextBox {
+			margin-bottom: 5px;
+			}
 		}
 	
-	.Border {
-		.modal();
-		padding: 0;
-		margin: -250px 0 0 -250px;
+// Buttons
+// ---------------------------------------------------------------------------------------------------// Buttons
+
+	// Basic Buttons
+
+	.Button {
+		.btn();
 		}
+
+	// BigButtons
+
+	.BigButton {
+		.btn();
+		.btn-primary();
+		display: block;
+		margin: 10px 0;
+		}
+
+	// Post Comment Buttons
+
+	.CommentForm {
+
+		.PreviewButton {
+			.btn();
+			margin: 0;
+			&.Hidden {
+				display: none;
+				}	
+			}
+
+		.WriteButton {
+			.btn();
+			padding: 5px 10px 6px;
+			margin: 0;
+			&.Hidden {
+				display: none;
+				}
+			}
+
+		.DraftButton {
+			.btn();
+			.btn-info();
+			margin: 0;
+			}
 		
-	.Body {
-		background: none;
-		padding: 10px 15px;
-		.Content {
+		.CommentButton {
+			.btn();
+			.btn-primary();
+			}
+	
+		}
+	
+	// Post Discussions Buttons
+	
+	#DiscussionForm {
+		
+		.Cancel {
+			.btn();
+			.btn-danger();
+			margin-top: 20px;
+			}
+			
+		.PreviewButton {
+			
+			}
+		
+		.DiscussionButton {
+			
+			}
+			
+		}
+
+// Icons
+// ---------------------------------------------------------------------------------------------------// Icons
+
+// Breadcrumbs
+// ---------------------------------------------------------------------------------------------------// Breadcrumbs
+
+	#Breadcrumbs {
+		border-bottom: 1px solid rgba(0,0,0,0.07);
+		margin-top: 1.5em;
+		line-height: 2em;
+		font-size: 14px;
+		.Crumb {
+			.hide-text();
+			&:after {
+				font-family: @sansFontFamily;
+				color: lighten(@textColor, 15%);
+				font-size: 14px;
+				content: "→";
+				}
+			}
+		}
+
+// Main Navigation
+// ---------------------------------------------------------------------------------------------------// Main Navigation
+	
+	.subhead h1 {
+		font-size: 40px;
+		font-weight: 300;
+		height: 100px;
+		line-height: 100px;
+		width: 100%;
+		}
+	
+	.subnav {
+		left: 0 !important;
+		width: 100% !important;
+		height: 38px;
+		.box-sizing(border-box);
+		}
+
+	.navbar-search {
+		margin-top: 0;
+		form {
+			padding: 4px;
+			margin-bottom: 0;
+			}
+		input[type="text"] {
+			padding-right: 26px;
+			margin-bottom: 0;
+			}
+		input[type="submit"] {
+			background: url('../images/sprites.png') 0 -196px no-repeat transparent;
+			height: 16px;
+			width: 16px;
+			padding: 0;
 			border: none;
-			.border-radius(6px);
-			h1, h2 {
-				font-size: 18px;
-				line-height: 27px;
-				margin: -10px -15px 15px;
-				font-weight: bold;
-				.modal-header();
-				color: @textColor;
-				}
-			h3 {
-				padding: 0 0 9px !important;
-				}
-			p {
-				padding: 0;
-				}
-			form,
-			.Preview {
-				.modal-body();
-				overflow-x: visible;
-				overflow-y: visible;
-				padding: 0;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			.hide-text();
+			.box-shadow(none);
+			}
+		}
+
+// Sidebar Navigation
+// ---------------------------------------------------------------------------------------------------// Sidebar Navigation
+
+	#Panel {
+
+		.FilterMenu,
+		.PanelInfo {
+			padding: 0 15px;
+			> li {
 				border-bottom: none;
-				}
-			.Preview {
-				overflow-y: scroll;
-				}
-			table {
-				width: 100%;
-				td {
-					border: solid @tableBorder;
-					border-width: 1px 0;
-					padding: 2px 6px;
+				padding: 0;
+				&:first-child {
+					border-top: none;
 					}
 				}
-			.Info {
-				margin-top: 0;
-				}
-				
-			.SingleEntryMethod,
-			.MultipleEntryMethods {
-				width: 100%;
-				}
-				
 			}
-		.Footer {
-			clear: both;
-			.modal-footer();
-			margin: 15px -15px -10px;
-			border-top: 1px solid @tableBorder;
-			.Close {
-				.close();
-				top: 14px;
-				font-size: 24px;
-				font-weight: normal;
+
+		.FilterMenu {
+			padding: 0 15px;
+			> li {
+				> a {
+					display: block;
+					margin: 0 -15px;
+					padding: 3px 15px;
+					&:hover {
+						background: @grayLighter;
+						}
+					}
+				&.Active > a {
+					color: @white;
+					font-weight: normal;
+					text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+					background-color: @linkColor;
+					}
 				}
 			}
-		input.Button {
-			font-size: 13px;
-			&:focus {
-				outline: none;
+		.PanelInfo {
+			> li {
+				display: block;
+				text-align: right;
+				overflow: auto;
+				margin: 0 -15px;
+				padding: 3px 15px;
+				a {
+					float: left;
+					}
+				&:hover {
+					background: rgba(0,0,0,0.07);
+					}
+				&.Active {
+					background-color: @linkColor;
+					> a, strong a {
+						color: @white;
+						font-weight: normal;
+						text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+						}
+					}
+				> strong {
+					float: left;
+					}
 				}
 			}
 		}
+
+// Content Column
+// ---------------------------------------------------------------------------------------------------// Content Column
+	
+	.container {
+		overflow-x: hidden;
+		> .row-fluid {
+			margin-top: 2em;
+			}
+		}
+	
+	.PageDescription {
+		margin: 0;
+		}
+
+// Modal Windows
+// ---------------------------------------------------------------------------------------------------// Modal Windows
+
+	.Overlay {
+		background: rgba(0,0,0,0.8);
+		z-index: @zindexModal;
+		}
+
+	#Popup {
+	
+		.Box {
+			border: none;
+			background: none;
+			padding: 0;
+			}
+	
+		.Border {
+			.modal();
+			padding: 0;
+			margin: -250px 0 0 -250px;
+			}
+		
+		.Body {
+			background: none;
+			padding: 10px 15px;
+			.Content {
+				border: none;
+				.border-radius(6px);
+				h1, h2 {
+					font-size: 18px;
+					line-height: 27px;
+					margin: -10px -15px 15px;
+					font-weight: bold;
+					.modal-header();
+					color: @textColor;
+					}
+				h3 {
+					padding: 0 0 9px !important;
+					}
+				p {
+					padding: 0;
+					}
+				form,
+				.Preview {
+					.modal-body();
+					overflow-x: visible;
+					overflow-y: visible;
+					padding: 0;
+					border-bottom: none;
+					}
+				.Preview {
+					overflow-y: scroll;
+					}
+				table {
+					width: 100%;
+					td {
+						border: solid @tableBorder;
+						border-width: 1px 0;
+						padding: 2px 6px;
+						}
+					}
+				.Info {
+					margin-top: 0;
+					}
+					
+				.SingleEntryMethod,
+				.MultipleEntryMethods {
+					width: 100%;
+					}
+				
+				}
+			.Footer {
+				clear: both;
+				.modal-footer();
+				margin: 15px -15px -10px;
+				border-top: 1px solid @tableBorder;
+				.Close {
+					.close();
+					top: 14px;
+					font-size: 24px;
+					font-weight: normal;
+					}
+				}
+			input.Button {
+				font-size: 13px;
+				&:focus {
+					outline: none;
+					}
+				}
+			}
+		}
+
+// Profile Pages
+// ---------------------------------------------------------------------------------------------------// Profile Pages
+	
+	.Photo .ProfilePhotoLarge {
+		width: 100%;
+		margin-bottom: 10px;
+		.box-sizing(border-box);
+		}
+	
+	.CurrentPicture img {
+		margin: 5px 0 10px;
+		}
+	
+	.Thumbnail {
+		img {
+			max-width: inherit;
+			}
+		}
+	
+	#Status {
+		margin: 10px 0;
+		}
+
+// Login Pages
+// ---------------------------------------------------------------------------------------------------// Login Pages
+
+
+// Data Tables
+// ---------------------------------------------------------------------------------------------------// Data Tables
+	
+	.DataTable {
+		margin-top: 10px;
+		
+		thead td {
+			vertical-align: middle;
+			border-top: 1px solid @grayLighter;
+			border-bottom: 1px solid @grayLighter;
+			padding: 8px 4px;
+			}
+		
+		tbody {
+			.BlockColumn {
+				padding: 12px 4px;
+				}
+			}
+		
+		td {
+			vertical-align: middle;
+			border-bottom: 1px solid @grayLighter;
+			.Wrap {
+				position: relative;
+				.box-sizing(border-box);
+				.Options {
+					position: absolute;
+					right: 0;
+					}
+				}
+			}
+		
+		&.CategoryTable {
+			tbody td {
+				vertical-align: top;
+				}
+			}
+	
 	}
 
-// Login Page
-// ---------------------------------------------------------------------------------------------------//
+// Data Lists
+// ---------------------------------------------------------------------------------------------------// Data Lists
 
+	.DataList {
+		margin-top: 10px;
+		
+		&.Discussions .Item {	
+			padding: 8px 4px;
+			}
+			
+		}
 
+// Navigation Boxes
+// ---------------------------------------------------------------------------------------------------// Navigation Boxes
+
+	.Box {
+		
+		h4 {
+			border-bottom: 1px solid @grayLighter;
+			padding-bottom: 5px;
+			margin-bottom: 10px;
+			}
+		
+		&.BoxCategories {
+			
+			}
+	
+	}
+
+// Errors, Warnings and Alerts
+// ---------------------------------------------------------------------------------------------------// Errors, Warnings and Alerts
+
+	.Errors ul {
+		.alert();
+		.alert-error();
+		}
+
+	.Alert {
+		.alert();
+		.alert-error();
+		padding: 1px 4px;
+		}
+		
+	.MeMenu .Alert {
+		.alert();
+		.alert-error();
+		padding: 1px;
+		}
+	
+	.Count {
+		.alert();
+		.alert-info();
+		padding: 1px 4px;
+		}
+
+	.HasNew {
+		.alert();
+		text-transform: capitalize;
+		padding: 2px 5px;
+		}
 
 // Import Custom styles
-// This file must be placed at the end of this file, to make sure that it properly overrides it.
-// ---------------------------------------------------------------------------------------------------//
+// ---------------------------------------------------------------------------------------------------// Import Custom styles
 
-@import "custom.less";
+	// This file must be placed at the end of this file, to make sure that it properly overrides it.
+
+	@import "custom.less";
 
 // The Epic End Credits
-// ---------------------------------------------------------------------------------------------------//
+// ---------------------------------------------------------------------------------------------------// The Epic End Credits
 
-.credits.well {
-	font-size: 11px;
-	text-align: center;
-	padding: 10px 15px;
-	margin-top: 10px;
-	color: lighten(@textColor, 35%);
-	}
+	.credits.well {
+		font-size: 11px;
+		text-align: center;
+		padding: 10px 15px;
+		margin-top: 10px;
+		color: lighten(@textColor, 35%);
+		}

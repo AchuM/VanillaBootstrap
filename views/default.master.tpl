@@ -4,11 +4,10 @@
 	{asset name='Head'}
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<!-- LESS, CSS and Prettify
+	<!-- LESS
 	================================================== -->
  	
  	<link rel="stylesheet/less" type="text/css" href="/themes/VanillaBootstrap/design/less/main.less">
- 	<link rel="stylesheet" type="text/css" href="/themes/VanillaBootstrap/design/prettify/prettify.css">
 	
 	<!-- Javascript
 	================================================== -->
@@ -22,7 +21,7 @@
 	<!-- Google Prettify
 	================================================== -->
 	
-	<script type="text/javascript" src="/themes/VanillaBootstrap/design/prettify/prettify.js"></script>
+	<script type="text/javascript" src="/themes/VanillaBootstrap/js/prettify/prettify.js"></script>
 	
 </head>
 <body id="{$BodyID}" class="{$BodyClass}" onload="prettyPrint()">
@@ -38,10 +37,10 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</a>
-				<a class="brand" href="{link path="/"}">{logo}</a>
+				<!-- <a class="brand" href="{link path="/"}">{logo}</a> -->
 				<div class="nav-collapse">
 					<ul class="nav">
-						<li><a href="{link path="/"}">Home</a></li>
+						<li><a><i class="icon-pencil"></i> This menu is fully customizable</a></li>
 					</ul>
 					
 					<ul class="nav pull-right">
@@ -49,7 +48,7 @@
 						<li>
 							{link path="signinout"}
 						</li>
-						<li class="divider-vertical"></li>
+						<!-- <li class="divider-vertical"></li> -->
 						</li>
 						{/if}
 						{if !$User.SignedIn}						
@@ -64,7 +63,7 @@
 								<i class="icon-signin"></i> <b>Sign in</b>
 							</a>
 						</li>
-						<li class="divider-vertical"></li>
+						<!-- <li class="divider-vertical"></li> -->
 						{/if}
 					</ul>
 				</div>
@@ -77,15 +76,17 @@
 
 	<div class="container">
 		
+		<div id="Breadcrumbs">{breadcrumbs}</div>
+		
 		<header class="jumbotron subhead" id="overview">
 			<h1>{logo}</h1>
-			<p class="lead"></p>
 			<div class="subnav">
 				<ul class="nav nav-pills">
 					{dashboard_link}
 					{discussions_link}
 					{activity_link}
 					{inbox_link}
+					{bookmarks_link}
 					{custom_menu}
 					{profile_link}
 					<li class="navbar-search pull-right">
@@ -95,7 +96,6 @@
 			</div>
 		</header>
 	
-		<div class="breadcrumb">{breadcrumbs}</div>
 		<div class="row-fluid">
 			<div class="Column PanelColumn span3" id="Panel">
 				{module name="MeModule"}

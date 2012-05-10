@@ -777,10 +777,6 @@ a.Bookmarking:hover {
 .PanelInfo .Active {
 	background: #f7f7f7;
    background: rgba(0, 0, 0, 0.03);
-	font-weight: bold;
-}
-.PanelInfo .Active strong {
-   font-weight: bold;
 }
 .PanelActivity .ShowAll,
 .PanelInfo .ShowAll {
@@ -1064,16 +1060,9 @@ body.Post .Popup a.Close {
    line-height: 140%;
    font-size: 100%;
 	word-wrap: break-word;
-   margin-top: 5px;
 }
 .Message h1, .Message h2, .Message h3, .Message p, .Message .P {
    margin: 10px 0;
-}
-blockquote {
-   padding: 1ex 16px;
-   margin: 1em 0;
-	background: #f3f3f3;
-   background: rgba(0, 0, 0, 0.05);
 }
 .Message small {
 	font-size: 11px;
@@ -1435,12 +1424,6 @@ div.Popup form ul li label {
 	font-weight:bold;
 	margin: 10px 0 0;
 }
-body.Entry form ul li.Gender label.RadioLabel,
-body.Profile.EditMode ul li.Gender label.RadioLabel,
-div.Popup form ul li.Gender label.RadioLabel {
-	display: inline;
-	padding-right: 20px;
-}
 li.Gender {
 	margin-bottom: 10px;
 }
@@ -1763,11 +1746,9 @@ tr.CategoryHeading td {
 	margin-left: 18px;
 }
 .DiscussionForm .PostOptions li {
-   display: inline;
    padding: 0 8px 0 0;
 }
 .DiscussionForm .PostOptions label {
-   display: inline;
    font-weight: normal;
    font-size: 95%;
    color: #555;
@@ -2090,23 +2071,9 @@ body#dashboard_entry_leave p.Leaving {
   left: auto;
   overflow: auto; 
 }
-.Errors ul {
-	border: 1px solid #a00 !important;
-   background: #d50a0a !important;
-	padding: 6px 10px;
-	display: block;
-   border-radius: 2px;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-}
 .Errors a {
    color: #fff;
    text-decoration: underline;
-}
-.Errors ul li {
-   color: #fff !important;
-   background: #d50a0a !important;
-	text-align: left;
 }
 div.Popup .Errors ul {
 	display: block;
