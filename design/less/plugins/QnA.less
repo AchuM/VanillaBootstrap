@@ -50,18 +50,29 @@
 	}
 
 #QnA_Question {
+	.btn();
 	.btn-warning();
 	}
 
 #QnA_Discussion {
+	.btn();
 	.btn-success();
 	}
 
 li.Active a {
 	&#QnA_Discussion {
-		background: @btnSuccessBackgroundHighlight;
+		.btn-active();
 		}
 	&#QnA_Question {
-		background: @btnWarningBackgroundHighlight;
+		.btn-active();
 		}
 	}
+
+#Form_Discussion {
+		.YesScript {
+			margin-bottom: 20px;
+			li {
+				display: inline;
+				}
+			}
+		}

@@ -2,7 +2,7 @@
 $ThemeInfo['Bootstrap'] = array(
    'Name' => 'Bootstrap',
    'Description' => "Based on Bootstrap from Twitter and inspired by LiveRoom.<br>Be sure to read the documentation found here: <a href='https://github.com/kasperisager/VanillaBootstrap'>https://github.com/kasperisager/VanillaBootstrap</a>",
-   'Version' => '2.0b-2.1',
+   'Version' => '2.0a-2.1',
    'Author' => "Kasper K. Isager",
    'AuthorEmail' => 'kasperisager@gmail.com',
    'AuthorUrl' => 'https://github.com/kasperisager'

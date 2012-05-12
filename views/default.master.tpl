@@ -88,7 +88,6 @@
 					{inbox_link}
 					{bookmarks_link}
 					{custom_menu}
-					{profile_link}
 					<li class="navbar-search pull-right">
 						{searchbox}
 					</li>

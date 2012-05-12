@@ -10,11 +10,6 @@ class BootstrapThemeHooks implements Gdn_IPlugin {
 		return TRUE;
 	}
 	
-	//Add "New comment" notice to comment form
-	public function DiscussionController_BeforeBodyField_Handler($Sender) {
-		echo '<label>New comment</label>';	
-	}
-	
 	//Add input notifiers to comment form
 	public function DiscussionController_BeforeFormButtons_Handler($Sender) {
 		if (C('Garden.InputFormatter') == 'Markdown' && !$Editing)

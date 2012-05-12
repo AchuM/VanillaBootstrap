@@ -2080,7 +2080,6 @@ div.Popup .Errors ul {
    border-radius: 2px;
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
-	border: 1px solid #a00 !important;
 }
 div.Popup .Errors {
    text-align: left;
