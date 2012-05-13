@@ -215,6 +215,15 @@
 		display: block;
 		margin: 10px 0;
 		
+		&.NewDiscussion {
+			.btn-info();
+			font-weight: bold;
+			&:before {
+				.fontIcon("\f044");
+				margin-right: 5px;
+				}
+			}
+		
 		&.ClearConversation {
 			.btn-danger();
 			}
@@ -1015,8 +1024,7 @@
 				position: relative;
 				.box-sizing(border-box);
 				.Options {
-					position: absolute;
-					right: 0;
+					height: 1px;
 					}
 				}
 			}
