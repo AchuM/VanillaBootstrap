@@ -170,7 +170,12 @@
 
 	#Form_Comment {
 		margin-bottom: 0;
+		.Buttons {
+			display: inline-block;
+			width: 100%;
+			}
 		.MarkupHelp {
+			display: inline-block;
 			line-height: 28px;
 			margin-right: 15px;
 			color: rgba(0,0,0,0.5);
@@ -287,7 +292,12 @@
 // Icons
 // ---------------------------------------------------------------------------------------------------// Icons
 
-	
+// Tags and Labels
+// ---------------------------------------------------------------------------------------------------// Tags and Labels
+
+	.Tag {
+		font-weight: normal;
+		}
 
 // Breadcrumbs
 // ---------------------------------------------------------------------------------------------------// Breadcrumbs
@@ -389,13 +399,9 @@
 		.PanelInfo {
 			> li {
 				display: block;
-				text-align: right;
 				overflow: auto;
 				margin: 0 -15px;
 				padding: 3px 15px;
-				a {
-					float: left;
-					}
 				&:hover {
 					background: rgba(0,0,0,0.07);
 					}
@@ -406,9 +412,6 @@
 						font-weight: normal;
 						text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
 						}
-					}
-				> strong {
-					float: left;
 					}
 				}
 			}
@@ -1048,9 +1051,9 @@
 			}
 		
 		&.Comments .Item {
-			padding: 20px 4px;
+			padding: 15px 4px;
 			.Message {
-				padding: 10px 0 0 50px;
+				padding: 10px 0 0;
 				}
 			}
 			
