@@ -8,6 +8,11 @@ jQuery(document).ready(function() {
 		e.stopPropagation();
 	});
 	
+	//Redactor Editor
+	jQuery('textarea.TextBox').livequery(function() {
+		jQuery(this).redactor();
+	});
+	
 	//Autosize textareas
 	jQuery('textarea').autosize();
 	
