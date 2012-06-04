@@ -23,11 +23,6 @@
 	
 	<script type="text/javascript" src="/themes/VanillaBootstrap/js/prettify/prettify.js"></script>
 	
-	<!-- Redactor Editor
-	================================================== -->
-	
-	<script type="text/javascript" src="/themes/VanillaBootstrap/design/redactor/redactor.js"></script>
-	
 </head>
 <body id="{$BodyID}" class="{$BodyClass}" onload="prettyPrint()">
 	
