@@ -40,6 +40,11 @@
 // Buttons, Inputs and Textareas
 // --------------------------------------------------------------------------------------------------- //
 	
+	// Basic Buttons
+	// ----------------------------------------------------------------------------------------------- //
+	
+	.BigButton.btn { display: block; }
+	
 	// Grouped Buttons
 	// ----------------------------------------------------------------------------------------------- //
 	
@@ -142,7 +147,7 @@
 	}
 	
 	// Profile Page
-	
+	// ----------------------------------------------------------------------------------------------- //
 	
 	.Photo .ProfilePhotoLarge { width: 100%; .box-sizing(border-box); }
 	
@@ -184,7 +189,11 @@
 	// Panel Panes
 	// ----------------------------------------------------------------------------------------------- //
 	
-	.Box h4 { border-bottom: 1px solid rgba(0,0,0,.05); padding-bottom: 5px; margin-bottom: 10px; }
+	.Box {
+		h4 { border-bottom: 1px solid rgba(0,0,0,.05); padding-bottom: 5px; margin-bottom: 10px;
+		margin-top: 0; }
+		&.GuestBox { margin-top: 0; }
+	}
 	
 	.PanelInfo { padding: 0 15px;
 		> li { border-bottom: none; margin: 0 -15px; padding: 3px 15px;

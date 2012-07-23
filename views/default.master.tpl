@@ -27,11 +27,8 @@
 						<li class="dropdown">
 							<a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Community <b class="caret"></b></a>
 							<ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-								<!--{dashboard_link}-->
 								{discussions_link}
 								{activity_link}
-								<!--{inbox_link}-->
-								<!--{bookmarks_link}-->
 								{custom_menu}
 							</ul>
 						</li>
@@ -76,7 +73,7 @@
 		</div>
 	</header>
 	
-	<div class="bs-docs-social subhead hidden-phone">
+	<div class="bs-docs-social subhead hidden-phone hidden-tablet">
 		<div class="container">
 			{breadcrumbs}
 			<div class="pull-right">
@@ -141,6 +138,7 @@
 	$('a.Cancel').livequery(function() { 			$(this).addClass('btn btn-danger'); });
 	$('.Cancel').find('a').livequery(function() { 	$(this).addClass('btn btn-danger'); });
 	$('.NavButton').each(function() {				$(this).toggleClass('NavButton btn'); });
+	$('.NewDiscussion').each(function() {			$(this).addClass('btn-primary'); });
 	
 	// Flyout Menus
 	$('.MenuItems').toggleClass('MenuItems dropdown-menu');
