@@ -131,21 +131,25 @@
 	
 	{literal}<script type="text/javascript">
 	
+	// Fix an annoying bug
+	$('body').removeClass('thumbnail');
+	
 	// Buttons
 	$('.Button').each(function() { 					$(this).toggleClass('Button btn'); });
 	$('.Button').livequery(function() { 			$(this).toggleClass('Button btn'); });
 	$('a.Cancel').each(function() { 				$(this).addClass('btn btn-danger'); });
 	$('a.Cancel').livequery(function() { 			$(this).addClass('btn btn-danger'); });
 	$('.Cancel').find('a').livequery(function() { 	$(this).addClass('btn btn-danger'); });
+	$('.NavButton').each(function() {				$(this).toggleClass('NavButton btn'); });
 	
 	// Flyout Menus
 	$('.MenuItems').toggleClass('MenuItems dropdown-menu');
 	$('.MenuItems').livequery(function() {
 		$(this).toggleClass('MenuItems dropdown-menu');
 	});
-	$('.FlyoutMenu').toggleClass('FlyoutMenu dropdown-menu');
+	$('.FlyoutMenu').addClass('dropdown-menu');
 	$('.FlyoutMenu').livequery(function() {
-		$(this).toggleClass('FlyoutMenu dropdown-menu');
+		$(this).addClass('dropdown-menu');
 	});
 	
 	// Navigation

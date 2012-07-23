@@ -70,7 +70,12 @@
 // --------------------------------------------------------------------------------------------------- //
 
 	.bs-docs-social { text-align: left; padding: 0; 
-		.Breadcrumbs { display: inline-block; padding: 9px 0 11px; }
+		.Breadcrumbs { display: inline-block; padding: 9px 0 11px;
+			.Crumb { .hide-text();
+			&:after { font-family: @sansFontFamily; color: lighten(@textColor, 15%); font-size: 14px;
+				content: "/ "; }
+			}
+		}
 	}
 
 
@@ -94,7 +99,32 @@
 	
 	h2.CommentHeading, .MessageForm h2 { font-size: 24px; line-height: 1.2; }
 	
-	.MessageList .Message { padding-left: 50px; }
+	.MessageList .Message { padding-left: 50px !important; }
+	
+	// Data Tables
+	// ----------------------------------------------------------------------------------------------- //
+	
+	.DataTable { margin-top: 10px;
+		thead td { vertical-align: middle; border-top: 1px solid lighten(@tableBorder, 6%);
+		border-bottom: 1px solid lighten(@tableBorder, 6%); padding: 8px 4px; }
+		tbody .BlockColumn { padding: 12px 4px; }
+		td { vertical-align: middle; border-bottom: 1px solid lighten(@tableBorder, 6%);
+			.Wrap { position: relative; .box-sizing(border-box);
+				.Options { height: 1px; }
+			}
+		}
+		&.CategoryTable tbody td { vertical-align: top; }
+	}
+
+	// Data Lists
+	// ----------------------------------------------------------------------------------------------- //
+
+	.DataList { margin-top: 10px;
+		&.Discussions .Item { padding: 8px 4px; }
+		&.Comments .Item { padding: 15px 4px;
+			.Message { padding: 10px 0 0; }
+		}
+	}
 	
 	// Leave a Comment
 	// ----------------------------------------------------------------------------------------------- //
@@ -111,6 +141,13 @@
 		&:before { border-bottom: 7px solid #CCC; }
 	}
 	
+	// Profile Page
+	
+	
+	.Photo .ProfilePhotoLarge { width: 100%; .box-sizing(border-box); }
+	
+	.Thumbnail img { max-width: inherit; }
+	
 
 // Sidebar Pane
 // --------------------------------------------------------------------------------------------------- //
@@ -123,6 +160,15 @@
 		.Username { padding: 10px 8px 11px; }
 		.MeMenu { padding: 8px; }
 		.ProfilePhoto { width: 28px; height: 28px; margin-top: 6px; .border-radius(2px); }
+		.Flyout { left: inherit; right: -4px; .box-sizing(border-box);
+			ul { line-height: 20px; }
+			&.FlyoutMenu { padding: 0;
+				a { padding: 0; clear: none; }
+				a:hover { background: none; color: @linkColorHover; }
+			}
+			&:before, &:after { right: 9px; left: auto; }
+			&:before { border-bottom: 7px solid #CCC; }
+		}
 	}
 	.Profile .MeBox { display: inline-block; }
 	.MeBox-SignIn { display: none; }
