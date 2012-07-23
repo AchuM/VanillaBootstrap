@@ -1,0 +1,114 @@
+// Import the Bootstrap Framework
+// --------------------------------------------------------------------------------------------------- //
+
+	@import "bootstrap/bootstrap";
+	@import "bootstrap/docs";
+
+
+// Bootswatches
+// --------------------------------------------------------------------------------------------------- //
+
+// Change "Vanilla" in the url to a swatch of your liking. The included swatches can be found in the
+// swatches direcotry. Swatches included: Cerulean, Journal, Simplex, Slate, Spacelab and United.
+// NB: This version of VanillaBootstrap doesn't yet fully support Bootswatches!
+	
+	//@import "swatches/Vanilla/variables";
+	//@import "swatches/Vanilla/bootswatch";
+	
+
+// Extra Mixins
+// --------------------------------------------------------------------------------------------------- //
+
+	.fontIcon(@icon) { font-family: FontAwesome; font-weight: normal; content: @icon; }
+
+
+/*// Bootstrap Class Mixins
+// --------------------------------------------------------------------------------------------------- //
+	
+	// Buttons
+	// ----------------------------------------------------------------------------------------------- //
+	
+		.Button { .btn(); }
+		
+	// Navigation
+	// ----------------------------------------------------------------------------------------------- //
+		
+		.navbar form { .navbar-search();
+			input { .search-query(); }
+		}
+		
+		.Dropdown { .dropdown-menu(); }*/
+		
+		
+// Basic HTML Elements
+// --------------------------------------------------------------------------------------------------- //
+	
+	body { font-smoothing: always; -webkit-font-smoothing: antialiased; }
+	
+	ol, ul { margin: 0; }
+
+
+// Buttons, Inputs and Textareas
+// --------------------------------------------------------------------------------------------------- //
+	
+	/*#panel .ButtonGroup { display: block; width: 100%;
+		.btn { width: 88%; .box-sizing(border-box); }
+		.dropdown-toggle { width: 13%; .box-sizing(border-box); }
+	}*/
+	
+	input, textarea { .box-sizing(border-box); // Fix box sizing model
+		&:focus { background-color: @bodyBackground !important; }
+		&.DateBox, &.InputBox, &.SmallInput, textarea { font-family: @sansFontFamily; }
+	}
+	
+	input { min-height: 28px; } 
+	
+	.TextBoxWrapper { padding-right: 0; }
+	
+	
+// Navigation Bar
+// --------------------------------------------------------------------------------------------------- //
+
+	
+
+
+// Subheader Content
+// --------------------------------------------------------------------------------------------------- //
+
+	.bs-docs-social { text-align: left; padding: 0; 
+		.Breadcrumbs { display: inline-block; padding: 9px 0 11px; }
+	}
+
+
+// Content Pane
+// --------------------------------------------------------------------------------------------------- //
+	
+	#content .BoxFilter { display: none; } // Hide the BoxFilter menu
+	
+	// Discussions
+	// ----------------------------------------------------------------------------------------------- //
+	
+		.ItemDiscussion .Message { font-size: 100%; }
+		
+		
+	// Options Menus
+	
+		.OptionsMenu .Flyout { right: -5px; left: auto;
+			&:before, &:after { right: 10px; }
+			&:before { border-bottom: 7px solid #CCC; }
+		}
+	
+
+// Sidebar Pane
+// --------------------------------------------------------------------------------------------------- //
+
+	.MeBox { display: inline-block; margin: 0;
+		.WhoIs, .Username, .MeMenu { display: inline-block; }
+		.Username { padding: 10px 8px 11px; }
+		.MeMenu { padding: 8px; }
+		.ProfilePhoto { width: 28px; height: 28px; margin-top: 6px; .border-radius(2px); }
+	}
+	.Profile .MeBox { display: inline-block; }
+	.MeBox-SignIn { display: none; }
+	
+	
