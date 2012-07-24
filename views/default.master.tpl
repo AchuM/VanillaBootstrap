@@ -11,7 +11,7 @@
 	<!-- Navbar
 	================================================== -->
 	
-	<div class="navbar navbar-fixed-top">
+	<div class="navbar navbar-fixed-top" id="bootstrap-navbar">
 		<div class="navbar-inner">
 			<div class="container">
 				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -66,7 +66,7 @@
 	<!-- Header
 	================================================== -->
 	
-	<header class="jumbotron subhead">
+	<header class="jumbotron subhead" id="bootstrap-header">
 		<div class="container">
 			<h1><!--{logo}-->Vanilla&#8203;Bootstrap</h1>
 			<p class="lead">The most beautiful Vanilla theme around built on the Bootstrap framework by Twitter for superb usability</p>
@@ -87,7 +87,7 @@
 		<!-- Container
 		================================================== -->
 	
-		<div class="container">
+		<div class="container" id="bootstrap-container">
 		
 			<noscript>
 				<p></p>
@@ -109,7 +109,7 @@
 		<!-- Footer
 		================================================== -->
 		
-		<footer class="footer">
+		<footer class="footer" id="bootstrap-footer">
 			<div class="container">
 				<p class="pull-right"><a href="#" class="back-to-top">Back to top</a></p>
 				{asset name="Foot"}

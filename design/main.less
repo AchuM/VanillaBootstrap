@@ -229,5 +229,15 @@
 
 // Alerts
 // --------------------------------------------------------------------------------------------------- //
-
-	.Messages.Errors ul { .alert(); }
+	
+	// Error Messages
+	// ----------------------------------------------------------------------------------------------- //
+	
+	#bootstrap-container, #Popup {
+		.Errors ul { padding: 8px 35px 8px 14px; margin-bottom: @baseLineHeight; 
+		text-shadow: 0 1px 0 rgba(255,255,255,.5) !important;
+		background-color: @errorBackground !important; border: 1px solid @errorBorder !important;
+		.border-radius(4px) !important; color: @errorText !important; 
+			li { background-color: transparent !important; color: @errorText !important; }
+		}
+	}
