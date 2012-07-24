@@ -166,6 +166,12 @@
 		//$(this).find('li a').append('<i class="icon-chevron-right"></i>');
 	});
 	
+	// Modals
+	$('.Popup').livequery(function() { $(this).find('.Body').addClass('modal'); });
+	$('.Popup h1').livequery(function() { $(this).addClass('modal-header'); });
+	$('.Popup .Content').livequery(function() { $(this).addClass('modal-body'); });
+	$('.Popup .Footer span').livequery(function() { $(this).addClass('close'); });
+	
 	// Grouped Buttons
 	$('.ButtonGroup').each(function() {
 		$(this).addClass('btn-group');

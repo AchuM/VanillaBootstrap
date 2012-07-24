@@ -61,8 +61,8 @@
 	// Inputs and textareas
 	// ----------------------------------------------------------------------------------------------- //
 	
-	input, textarea { .box-sizing(border-box); // Fix box sizing model
-		&:focus { background-color: @bodyBackground !important; }
+	input, textarea { .box-sizing(border-box);
+		&:focus { background-color: @bodyBackground; }
 		&.DateBox, &.InputBox, &.SmallInput, textarea { font-family: @sansFontFamily; }
 	}
 	
@@ -93,7 +93,7 @@
 // Content Pane
 // --------------------------------------------------------------------------------------------------- //
 	
-	#content .BoxFilter { display: none; } // Hide the BoxFilter menu
+	#content .BoxFilter { display: none; }
 	
 	// Discussions
 	// ----------------------------------------------------------------------------------------------- //
@@ -204,4 +204,23 @@
 				text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2); }
 			}
 		}
+	}
+
+// Modal Windows
+// --------------------------------------------------------------------------------------------------- //
+	
+	.Overlay { background-color: rgba(0,0,0,.8); }
+	
+	#Popup {
+		.Border { padding: 0; }
+		.Body { padding: 0; }
+		.modal-header { padding: 19px 15px; }
+		.Content {
+			.modal-header { font-size: 24px; font-weight: bold; line-height: 40px; 
+			margin: -15px -15px 15px; }
+		}
+		.Footer { .modal-footer(); }
+		a.Close { top: 12px; right: 15px; }
+		.close { font-size: 22px; }
+		p { padding: 0; }
 	}
