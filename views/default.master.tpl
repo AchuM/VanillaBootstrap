@@ -143,6 +143,8 @@
 	$('.Cancel').find('a').livequery(function() { 	$(this).addClass('btn btn-danger'); });
 	$('.NavButton').each(function() {				$(this).toggleClass('NavButton btn'); });
 	$('.NewDiscussion').each(function() {			$(this).addClass('btn-primary'); });
+	$('.ForgotPassword').livequery(function() {		$(this).addClass('btn btn-danger'); });
+	$('.Primary.btn').livequery(function() {		$(this).addClass('btn-primary'); });
 	
 	// Flyout Menus
 	$('.MenuItems').toggleClass('MenuItems dropdown-menu');
@@ -173,7 +175,8 @@
 	// Modals
 	$('.Popup').livequery(function() { $(this).find('.Body').addClass('modal'); });
 	$('.Popup h1').livequery(function() { $(this).addClass('modal-header'); });
-	$('.Popup .Content').livequery(function() { $(this).addClass('modal-body'); });
+	$('.Popup .Content .MainForm').livequery(function() { $(this).addClass('modal-body'); });
+	$('.Popup .Content .Legal').livequery(function() { $(this).addClass('modal-body'); });
 	$('.Popup .Footer span').livequery(function() { $(this).addClass('close'); });
 	
 	// Grouped Buttons
@@ -196,6 +199,12 @@
 			buttonGroup.addClass('open');
 		}
 		return false;
+	});
+	
+	// Pages
+	$('.Entry').each(function() {
+		$(this).find('#panel').remove();
+		$(this).find('#content').toggleClass('span9 span6 offset3');
 	});
 	
 	</script>{/literal}

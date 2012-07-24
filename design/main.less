@@ -27,9 +27,7 @@
 	
 	body { font-smoothing: always; -webkit-font-smoothing: antialiased; }
 	
-	a {
-		&:hover { text-decoration: none; }
-	}
+	a:hover { text-decoration: none; }
 	
 	ol, ul { margin: 0; }
 	
@@ -66,7 +64,9 @@
 		&.DateBox, &.InputBox, &.SmallInput, textarea { font-family: @sansFontFamily; }
 	}
 	
-	input { min-height: 28px; } 
+	input { min-height: 30px;
+		&.InputBox:focus { background-color: @bodyBackground; }
+	}
 	
 	.TextBoxWrapper { padding-right: 0; }
 	
@@ -155,6 +155,18 @@
 	
 	.Thumbnail img { max-width: inherit; }
 	
+	// Search Page
+	// ----------------------------------------------------------------------------------------------- //
+	
+	.SearchForm { background: rgba(0,0,0,0.05); .border-radius(4px); margin-top: 0; padding: 10px;
+		form { margin-bottom: 0; }
+		.SiteSearch { max-width: 100%; }
+		input.InputBox { margin: 0; padding-right: 77px; .border-radius(3px); }
+		input.btn { float: right; width: 70px; position: relative; margin-top: -30px;
+		.border-radius(0 3px 3px 0); }
+	}
+	
+	
 
 // Sidebar Pane
 // --------------------------------------------------------------------------------------------------- //
@@ -207,6 +219,7 @@
 			}
 		}
 	}
+	
 
 // Modal Windows
 // --------------------------------------------------------------------------------------------------- //
@@ -218,14 +231,14 @@
 		.Body { padding: 0; }
 		.modal-header { padding: 19px 15px; }
 		.Content {
-			.modal-header { font-size: 24px; font-weight: bold; line-height: 40px; 
-			margin: -15px -15px 15px; }
+			.modal-header { font-size: 24px; font-weight: bold; line-height: 40px; margin-bottom: 0; }
 		}
 		.Footer { .modal-footer(); }
 		a.Close { top: 12px; right: 15px; }
 		.close { font-size: 22px; }
 		p { padding: 0; }
 	}
+	
 
 // Alerts
 // --------------------------------------------------------------------------------------------------- //
@@ -241,3 +254,56 @@
 			li { background-color: transparent !important; color: @errorText !important; }
 		}
 	}
+
+// Forms
+// --------------------------------------------------------------------------------------------------- //
+
+	// Single Entry Sign-in
+	// ----------------------------------------------------------------------------------------------- //
+	
+	#Popup .SingleEntryMethod {
+		input { max-width: 100%; width: 100%; margin-bottom: 0;
+			&[type="password"] { margin-bottom: 0; padding-right: 77px; }
+			&[type="checkbox"] { width: auto;  float: left; margin: 0; height: 30px; }
+		}
+		label { margin-bottom: 9px; }
+		li { clear: both; }
+		input.btn { width: auto; float: right; }
+		.Buttons { width: 100%; line-height: 30px; margin-top: 9px; }
+	}
+	
+	#Popup .SingleEntryMethod #Form_User_SignIn { margin: 0 auto; padding: 0 15px; max-width: 350px;
+		a.ForgotPassword { float: right; position: relative; margin-top: -30px; .border-radius(0 3px 3px 0); }
+		.CreateAccount { clear: both; color: rgba(0,0,0,.5); }
+	}
+	
+	#Popup .SingleEntryMethod #Form_User_Password {  margin: 0 auto; padding: 0 15px; max-width: 350px;
+		.btn { .box-sizing(border-box); }
+		input.btn {  }
+		.Buttons { overflow: auto; }
+		a.ForgotPassword { margin-left: 0; float: left; }
+	}
+	
+	// Multiple Entry Sign-in
+	// ----------------------------------------------------------------------------------------------- //
+	
+	#Popup .SingleEntryMethod {
+	}
+	
+	#Popup .SingleEntryMethod #Form_User_SignIn {
+	}
+	
+	#Popup .SingleEntryMethod #Form_User_Password {
+	}
+	
+	// Registration
+	// ----------------------------------------------------------------------------------------------- //
+	
+	.Entry.register #content {
+		input { width: 100%; 
+			&[type="radio"], &[type="checkbox"] { width: auto; height: 18px; margin-right: 2px; }
+		}
+		.FormWrapper { padding: 15px 25px; .border-radius(5px); }
+	}
+	
+	
