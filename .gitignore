@@ -1,2 +1,24 @@
 
 .DS_Store
+
+design/images/bootstrap-features.png
+
+design/images/customize.png
+
+design/images/iexploit.png
+
+design/images/jquery-logo.png
+
+design/images/onlyanexcuse.png
+
+design/images/responsive-illustrations.png
+
+design/images/twitter-github.png
+
+design/images/vanilla-forums.png
+
+design/images/veganshare.png
+
+design/images/villabanter.png
+
+views/home.master.tpl
