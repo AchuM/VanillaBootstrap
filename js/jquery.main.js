@@ -20,14 +20,14 @@ jQuery(document).ready(function() {
 	});
 	
 	// Fancy Fade Jumbotron
-	var $jumbotron  = $('.jumbotron')
+	/*var $jumbotron  = $('.jumbotron')
 		, $jcontainer = $('.jumbotron .container')
 		, opacRatio   = ($jumbotron.height() / 200 ) * 2
 
-	$(window).on('scroll', function () {
+	/$(window).on('scroll', function () {
 		var diff = 100 - ($(window).scrollTop() / opacRatio)
 		$jcontainer.css({ opacity: (diff > 0 ? Math.min(diff, 100) : 0) / 100 })
-	});
+	});*/
 	
 });
 

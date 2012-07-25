@@ -177,6 +177,7 @@
 	$('.Popup h1').livequery(function() { $(this).addClass('modal-header'); });
 	$('.Popup .Content .MainForm').livequery(function() { $(this).addClass('modal-body'); });
 	$('.Popup .Content .Legal').livequery(function() { $(this).addClass('modal-body'); });
+	$('.Popup .Content > p').livequery(function() { $(this).addClass('modal-body'); });
 	$('.Popup .Footer span').livequery(function() { $(this).addClass('close'); });
 	
 	// Grouped Buttons
